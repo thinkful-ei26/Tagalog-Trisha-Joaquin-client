@@ -13,6 +13,7 @@ export class Dashboard extends React.Component {
             <div className="dashboard">
                 <div className="dashboard-username">
                     Username: {this.props.username}
+                    <h1> hanga banga</h1>
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
                 <div className="dashboard-protected-data">
