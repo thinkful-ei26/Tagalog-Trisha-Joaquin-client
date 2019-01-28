@@ -64,3 +64,10 @@ User Story: As a registered user, I should be able to log into my account, so th
 ### ======================================
 
 <img src="assets/media/signup.png" alt="" width="300px" />
+<img src="assets/media/login.png" alt="" width="300px" />
+<img src="assets/media/infomodal.png" alt="" width="300px" />
+<img src="assets/media/dashboard.png" alt="" width="300px" />
+<img src="assets/media/sp-question.png" alt="" width="300px" />
+<img src="assets/media/right-feedback.png" alt="" width="300px" />
+<img src="assets/media/wrong-feedback.png" alt="" width="300px" />
+<img src="assets/media/budding-scholar.png" alt="" width="300px" />
