@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: XHpp2iexBFjVmESllcjVfx06GPtRFvg2chqhNRJN5NSEG4IzdTpoM2+GZo7K2pln0aOybEJvAWguirGF56Lq3TBaPKjI8KIBHd5AXlkqskglC8nFE7RBlXxNUCPGjMzWkclKknOoWlbKn40R9ucK7MO6cS/KnHSWe8V25NMUD02eoZc8ZkcAT6C373i3xFg+F0G0nCjMNVMe5i0DnNyWdk/zzXZFYX0uWn7mvAK7GnZSnfE51EBn4SkmyvdM2xc3XQxTyX1G+nwajNIudNxWGUnakq3mMA5d0oK1G/mNPX8pz29hwkVT1tIVJzHht8+7qomcf+0h9K1+NvwnlYMkjmLckfY2yZnveyuC6EBfSHieDOC1lsJUMNYoMaQAtwxHe3QkK7gWS80Tm5ahxkpfo+DOU6p1yzYTGW6UxCRe2fA6TjL6sd8g0CWMxo4asXeoFUXwymkaXo7eU9sZvAS3fHgKRHmNc3uu10UiOXMR2O53OBiGfOom1+f/R7yp3k0yY6VwCfglOpyyMZXiRWHQ8fIro6yq239iaMjdIf0jIRHCXzsg49U+OOhvIPVnxWIiOqznhYOxmtCosGPYJu+DRVVbR8y3Gbo8RypDM/fz5eUNTbCFhfi7vynbLZ6Pke2abVlKGahooTQkzmdkXxzaKepujZXwg+oiZr2dBIoI0e4=
+  app: frozen-garden-93870
+  on:
+    repo: thinkful-ei26/Tagalog-Trisha-Joaquin-client
