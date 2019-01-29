@@ -5,12 +5,9 @@ import { fetchProtectedData } from '../actions/protected-data';
 import Card from './card';
 
 export class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
-  }
+
 
   render() {
-    console.log('dashboard props', this.props);
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -23,12 +20,10 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('dashboard state: ', state);
   const { username, name } = state.auth.currentUser;
   return {
     username,
-    name,
-    protectedData: state.protectedData.data
+    name
   };
 };
 
