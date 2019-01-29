@@ -16,13 +16,13 @@ export function LandingPage(props) {
         <legend> Welcome</legend>
         <p>
           This is a language learning app to help get you on your way to
-          learning Tagalog, one of the Phillipe's native languages.
+          learning Tagalog, one of the Philippines' national languages.
         </p>
         <p>
           We use <a href='https://en.wikipedia.org/wiki/Spaced_repetition'>spaced repetition</a> training, a
           technique to help you better master and retain new information.
         </p>
-        <p> You will be shown a Tagalot word. See if you can enter the corresponding English translation of the word.</p>
+        <p> You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.</p>
       </fieldset>
 
       <LoginForm />
