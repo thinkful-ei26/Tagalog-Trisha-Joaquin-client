@@ -4,25 +4,22 @@ import './card.css';
 import AnswerFeedbackCorrect from './answer-feedback-correct';
 import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
-export class Card extends Component {
-constructor(props){
-  this.state={
-    submit: false,
-    feedback: incorrect
+export class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      submit: false,
+      feedback: 'incorrect'
+    };
   }
-}
-// If submit is true && answer is correct, then return AnsFeedCorrect, else return AnsFeedIncorrect
-onSubmit(submit){
-  this.setState({submit})
-}
+  // If submit is true && answer is correct, then return AnsFeedCorrect, else return AnsFeedIncorrect
+  onSubmit(submit) {
+    this.setState({ submit });
+  }
 
-onFeedback(feedback){
-  this.setState=({feedback:correct})
-}
-
-
-
-
+  onFeedback(feedback) {
+    this.setState = { feedback: 'correct' };
+  }
 
   render() {
     const { answer, word } = this.props;
