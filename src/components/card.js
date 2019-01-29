@@ -5,7 +5,8 @@ import AnswerFeedbackCorrect from './answer-feedback-correct';
 import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
 export function Card(props) {
-  return (
+  console.log('Card props: ',props);
+  return(
     <div className="card-wrapper">
       <fieldset>
         <div className="card-answer-response">
