@@ -14,8 +14,8 @@ export class RegistrationForm extends React.Component {
 /* ========= FORM SUBMIT TO DATABASE ========== */
     onSubmit(values) {
         console.log('values: ',values);
-        const {username, password, firstname, lastname} = values;
-        const user = {username, password, firstname, lastname};
+        const {username, password, firstname, /* lastname */} = values;
+        const user = {username, password, firstname, /* lastname */};
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
@@ -34,12 +34,12 @@ export class RegistrationForm extends React.Component {
                     type="text" 
                     name="firstname" 
                 />
-                <label htmlFor="lastname">Last Name</label>
+                {/* <label htmlFor="lastname">Last Name</label>
                 <Field 
                     component={Input} 
                     type="text" 
                     name="lastname" 
-                />
+                /> */}
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
