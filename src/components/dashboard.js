@@ -29,12 +29,10 @@ export class Dashboard extends React.Component {
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>
                 </div>
-                <Card />
-                <ul>
-                    <li>
-                        <span>{this.props.questionData[0].question.word}</span>
-                    </li>
-                </ul>
+                <Card 
+                    answer={this.props.questionData[0].question.answer}
+                    word={this.props.questionData[0].question.word}
+                />
             </div>
         );
     }

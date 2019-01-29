@@ -6,6 +6,8 @@ import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
 export function Card(props) {
   console.log('Card props: ',props);
+
+  const {answer, word } = props;
   return(
     <div className="card-wrapper">
       <fieldset>
@@ -17,7 +19,7 @@ export function Card(props) {
         <form className="card-question-form" action="submit">
           <div className="question">
             {' '}
-            <h2>Hanga Banga?</h2>
+            <h2>{word}</h2>
           </div>
           <Field
             component="input"
