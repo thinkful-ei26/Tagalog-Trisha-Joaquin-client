@@ -1,5 +1,5 @@
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
     .card-wrapper{
         max-width: 100%;
         padding: 5%;
@@ -14,6 +14,48 @@
         background-color: whitesmoke;
         padding: 5%;
         text-align: center;
+    }
+    
+    .card-input{
+        width: 80%;
+        margin: 5%;
+        padding: 5%;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .card-submit-button{
+        padding: 2%;
+        background-color: rgb(161, 122, 122);
+        color: white;
+        font-size: 1rem;
+        border: none;
+        padding: 10px;
+        border-radius: 4%;
+    }
+    
+    .card-question-form{
+        padding: 0;
+        font-size: 1rem;
+    }
+  } 
+  
+  @media (min-width: 600px) {
+    .card-wrapper{
+        max-width: 80%;
+        padding: 1%;
+        margin: 1%;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .question{
+        max-width: 100%;
+        border: 1px solid grey;
+        background-color: whitesmoke;
+        padding: 1%;
+        text-align: center;
+        font-size: 2rem;
     }
     
     .card-input{
@@ -38,13 +80,47 @@
         padding: 0;
         font-size: 1rem;
     }
-  } 
-  
-  /* @media (min-width: 600px) {
-
   }
   
   @media (min-width: 960px) {
-
+    .card-wrapper{
+        max-width: 60%;
+        padding: 1%;
+        margin: 1%;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .question{
+        margin: 0 auto;
+        max-width: 80%;
+        border: 1px solid grey;
+        background-color: whitesmoke;
+        padding: 1%;
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+    .card-input{
+        width: 60%;
+        margin: 5%;
+        padding: 5%;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .card-submit-button{
+        padding: 2%;
+        background-color: rgb(161, 122, 122);
+        color: white;
+        font-size: 1rem;
+        border: none;
+        padding: 10px;
+        border-radius: 4%;
+    }
+    
+    .card-question-form{
+        padding: 0;
+        font-size: 1rem;
+    }
   }
-  */
