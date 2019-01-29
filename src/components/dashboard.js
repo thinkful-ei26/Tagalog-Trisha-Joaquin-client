@@ -8,7 +8,6 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
-    
     render() {
         console.log('dashboard props', this.props);
         return (
@@ -17,7 +16,7 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                     <h1>Welcome!</h1>
                 </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
+                <div className="dashboard-name">Name: {`${this.props.firstname} ${this.props.lastname}`}</div>
                 <div className="dashboard-protected-data">
                     Protected data: {this.props.protectedData}
                 </div>
@@ -27,12 +26,12 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
+    const { username, firstname, lastname } = state.auth.currentUser;
     console.log('state',state);
-    console.log('state.auth',state.auth);
     return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`,
+        username,
+        firstname,
+        lastname,
         protectedData: state.protectedData.data
     };
 };
