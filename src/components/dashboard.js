@@ -10,7 +10,15 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        //console.log('dashboard props', this.props);
+        console.log('dashboard props', this.props.questionData);
+        // console.log('dashboard props', this.props.questionData[0].question.word);
+
+        const { questions } = this.props.questionData;
+
+        this.props.questionData.forEach( (item, index) => {
+            console.log('item: ' + item.question.word + ' index: ' + index)        
+        })
+
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -22,19 +30,24 @@ export class Dashboard extends React.Component {
                     Protected data: {this.props.protectedData}
                 </div>
                 <Card />
+                <ul>
+                    <li>
+                        <span>{this.props.questionData[0].question.word}</span>
+                    </li>
+                </ul>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-//    console.log('dashboard state: ',state)
-console.log('dashboard state: ',state.auth.currentUser.questionData[0])
-    const { username, name } = state.auth.currentUser;
+//console.log('dashboard state: ',state)
+//console.log('dashboard state: ',state.auth.currentUser.questionData)
+    const { username, name, questionData } = state.auth.currentUser;
     return {
         username,
         name,
-        protectedData: state.protectedData.data
+        questionData
     };
 };
 
