@@ -10,7 +10,8 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        //console.log('dashboard props', this.props.questionData);
+        console.log('dashboard props', this.props.questionData);
+
         // console.log('dashboard props', this.props.questionData[0].question.word);
 
         // const { questionData } = this.props;
