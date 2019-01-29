@@ -1,7 +1,7 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
-console.log('API_BASE_URL from protected data', API_BASE_URL)
+// console.log('API_BASE_URL from protected data', API_BASE_URL) // http://localhost:8080/api
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
 export const fetchProtectedDataSuccess = data => ({

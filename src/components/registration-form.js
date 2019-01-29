@@ -7,8 +7,6 @@ import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
-// import { API_BASE_URL } from '../config';
-
 export class RegistrationForm extends React.Component {
 
 /* ========= FORM SUBMIT TO DATABASE ========== */
@@ -33,13 +31,8 @@ export class RegistrationForm extends React.Component {
                     component={Input} 
                     type="text" 
                     name="name" 
+                    validate={[required, nonEmpty]}
                 />
-                {/* <label htmlFor="lastname">Last Name</label>
-                <Field 
-                    component={Input} 
-                    type="text" 
-                    name="lastname" 
-                /> */}
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}

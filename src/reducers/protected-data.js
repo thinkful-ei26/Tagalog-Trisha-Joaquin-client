@@ -10,6 +10,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     if (action.type === FETCH_PROTECTED_DATA_SUCCESS) {
+        console.log('protected-data state: ', state)
+        console.log('protected-data action: ', action)
         return Object.assign({}, state, {
             data: action.data,
             error: null
