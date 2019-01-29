@@ -16,7 +16,6 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-username">
                     <h2>Hello {this.props.name}!</h2>
                 </div>
-                
                 <Card />
             </div>
         );

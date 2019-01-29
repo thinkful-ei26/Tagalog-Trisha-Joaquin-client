@@ -1,9 +1,7 @@
 import React from 'react';
-import {Field} from 'reduxForm'
+import {reduxForm,Field} from 'redux-form'
 import './card.css';
-// this will be my component to render a question and collect the user response.
-// It needs to be stateful on the first implementation.
-export default function Card(props)  {
+export function Card(props)  {
 
  
   
@@ -13,8 +11,7 @@ export default function Card(props)  {
           <legend>Learn Tagalog</legend>
           <form className='card-question-form' action="submit">
             <div className="question"> <h2>Hanga Banga?</h2></div>
-            {/* <label for="answer-input" /> */}
-            <input className='card-input' type="text" name="answer-input" placeholder='Your answer here' autofocus='true' required='true'/>
+            <Field component='input'className='card-input' type="text" name="answer-input" placeholder='Your answer here' autofocus='true' required='true'/>
             <div className="response" />
           </form>
           <button className='card-submit-button' type='submit'>Check your answer</button>
@@ -22,4 +19,6 @@ export default function Card(props)  {
       </div>
     );
   }
-
+export default reduxForm({
+  form:'card'
+})(Card)
