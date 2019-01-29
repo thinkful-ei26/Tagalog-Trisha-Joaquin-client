@@ -11,7 +11,7 @@ export function Card(props)  {
           <legend>Learn Tagalog</legend>
           <form className='card-question-form' action="submit">
             <div className="question"> <h2>Hanga Banga?</h2></div>
-            <Field component='input'className='card-input' type="text" name="answer-input" placeholder='Your answer here' autofocus='true' required='true'/>
+            <Field component='input'className='card-input' type="text" name="answer-input" placeholder='Your answer here' autoFocus={true} required={true}/>
             <div className="response" />
           </form>
           <button className='card-submit-button' type='submit'>Check your answer</button>
