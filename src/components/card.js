@@ -1,4 +1,5 @@
 import React from 'react';
+import {Field} from 'reduxForm'
 import './card.css';
 // this will be my component to render a question and collect the user response.
 // It needs to be stateful on the first implementation.
