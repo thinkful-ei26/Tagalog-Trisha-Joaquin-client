@@ -5,19 +5,18 @@ import './card.css';
 export default function Card(props)  {
 
  
-    // let keys = Object.keys(this.state.questions);
-    const questionBox = 'questionBox';
-    const answerField = 'answerField';
+  
     return (
       <div className="card-wrapper">
         <fieldset>
-          <legend>Tagalog</legend>
-          <form action="submit">
-            <div className="question">What is Hanga Banga?</div>
-            <label for="answer-submit" />
-            <input type="text" name="answer-submit" value="Your answer here" />
+          <legend>Learn Tagalog</legend>
+          <form className='card-question-form' action="submit">
+            <div className="question"> <h2>Hanga Banga?</h2></div>
+            {/* <label for="answer-input" /> */}
+            <input className='card-input' type="text" name="answer-input" placeholder='Your answer here' autofocus='true' required='true'/>
             <div className="response" />
           </form>
+          <button className='card-submit-button' type='submit'>Check your answer</button>
         </fieldset>
       </div>
     );

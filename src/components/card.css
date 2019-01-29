@@ -1,0 +1,29 @@
+.card-wrapper{
+    max-width: 40%;
+    padding: 10%;
+    margin: 5%;
+    margin: auto;
+    text-align: center;
+}
+
+.question{
+    /* max-width: 50%; */
+    border: 1px solid grey;
+    background-color: whitesmoke;
+    padding: 5%;
+    text-align: center;
+}
+
+.card-input{
+    margin: 5%;
+    padding: 5%;
+    text-align: center
+}
+
+.card-submit-button{
+    padding: 2%;
+}
+
+.card-question-form{
+    padding: 5%;
+}
