@@ -8,6 +8,7 @@ export function Card(props) {
   console.log('Card props: ',props);
 
   const {answer, word } = props;
+  
   return(
     <div className="card-wrapper">
       <fieldset>
