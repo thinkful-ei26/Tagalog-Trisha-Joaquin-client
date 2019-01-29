@@ -8,6 +8,9 @@ export function Card(props)  {
     return (
       <div className="card-wrapper">
         <fieldset>
+        <div className='card-answer-response'>
+          
+        </div>
           <legend>Learn Tagalog</legend>
           <form className='card-question-form' action="submit">
             <div className="question"> <h2>Hanga Banga?</h2></div>
