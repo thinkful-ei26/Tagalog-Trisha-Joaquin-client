@@ -10,14 +10,20 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        console.log('dashboard props', this.props.questionData);
+        //console.log('dashboard props', this.props.questionData);
         // console.log('dashboard props', this.props.questionData[0].question.word);
 
-        const { questions } = this.props.questionData;
+        // const { questionData } = this.props;
 
-        this.props.questionData.forEach( (item, index) => {
-            console.log('item: ' + item.question.word + ' index: ' + index)        
-        })
+        // const question = questionData.forEach( (item, index) => {
+        //     console.log('item: ' + item.question.word + ' index: ' + index)
+        //     return (
+        //         <li>
+        //             <p>{item.question.word}</p>
+        //             <p>{item.question.answer}</p>
+        //         </li>
+        //     )    
+        // })
 
         return (
             <div className="dashboard">
