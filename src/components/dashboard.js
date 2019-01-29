@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 import Card from './card';
 
-export class Dashboard extends React.Component {
+export class Dashboard extends Component {
 
     render() {
         console.log('dashboard props', this.props.questionData);

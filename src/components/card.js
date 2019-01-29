@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import './card.css';
+import '../styles/card.css';
 import AnswerFeedbackCorrect from './answer-feedback-correct';
 import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 

@@ -1,0 +1,12 @@
+.header-bar {
+  background-color: rgb(161, 122, 122);
+  max-width: 100%;
+  padding: 1%;
+  color: white;
+  text-align: center;
+}
+
+.logout-btn {
+  font-size: 0.8rem;
+  color: black;
+}
