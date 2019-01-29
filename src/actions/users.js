@@ -31,4 +31,4 @@ export const registerUser = user => dispatch => {
 
 //user login, validate, get a question, send the question (keep answer the back), get the user input, server validates, if correct, implement the algorithm 
 //question => q & a
-//user => user, pw, question (question, answer, m, next, history)
+//user => user, pw, question (question, answer, m, next, history (total correct, incorrect))
