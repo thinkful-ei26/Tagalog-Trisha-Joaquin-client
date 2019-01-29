@@ -5,24 +5,20 @@ import AnswerFeedbackCorrect from './answer-feedback-correct';
 import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
 export class Card extends Component {
-constructor(props){
-  this.state={
-    submit: false,
-    feedback: incorrect
-  }
-}
+// constructor(props){
+//   this.state={
+//     submit: false,
+//     feedback: 'incorrect'
+//   }
+// }
 // If submit is true && answer is correct, then return AnsFeedCorrect, else return AnsFeedIncorrect
-onSubmit(submit){
-  this.setState({submit})
-}
+// onSubmit(submit){
+//   this.setState({submit})
+// }
 
-onFeedback(feedback){
-  this.setState=({feedback:correct})
-}
-
-
-
-
+// onFeedback(feedback){
+//   this.setState=({feedback:correct})
+// }
 
   render() {
     const { answer, word } = this.props;
