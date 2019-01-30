@@ -3,10 +3,11 @@ import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
-import { postQuestion } from '../actions/question';
+import { postQuestion, fetchQuestion } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
+    this.props.dispatch(fetchQuestion());
     console.log('value of card input',value);
     this.props.dispatch(postQuestion(value.userinput));
   }
@@ -39,8 +40,7 @@ export class Card extends Component {
               validate={[required, nonEmpty]}
             />
             <div className="response" />
-          </form>
-          <button 
+            <button 
             className="card-submit-button" 
             type="submit"
             disabled={pristine || submitting}
@@ -48,6 +48,7 @@ export class Card extends Component {
           >
             Check your answer
           </button>
+          </form>
         </fieldset>
       </div>
     );

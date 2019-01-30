@@ -18,10 +18,9 @@ export const postQuestionRequest = () => ({
 });
 
 export const POST_QUESTION_SUCCESS = 'POST_QUESTION_SUCCESS';
-export const postQuestionSuccess = ({question, feedback}) => ({
+export const postQuestionSuccess = (question) => ({
   type: POST_QUESTION_SUCCESS,
   question,
-  feedback
 });
 
 export const POST_QUESTION_ERROR = 'POST_QUESTION_ERROR';
@@ -79,7 +78,7 @@ export const postQuestion = (answer) => (dispatch, getState) => {
       return;
     })
     .then((res) => {
-      dispatch(postQuestionSuccess(res))
+      dispatch(postQuestionSuccess(res));
       // //if the answer is correct increment correctAnswer, else increment incorrectAnswer
       // if(answer){
       //   increment Mvalue
