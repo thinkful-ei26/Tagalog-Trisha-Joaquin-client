@@ -56,15 +56,36 @@ export const postQuestion = (answer) => (dispatch, getState) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`
       },
-      body: JSON.stringify({
-        answer,
-        question: {id: getState().question.question.id},
-      })
+      body: JSON.stringify({answer})
     })
-    .then(res => res.json())
+     /* ========= RESPONSE HANDLING ========== */
+     .then(res => {
+      if (!res.ok) {
+        if (
+          res.headers.has('content-type') &&
+          res.headers
+            .get('content-type')
+            .startsWith('application/json')
+        ) {
+          // It's a nice JSON error returned by us, so decode it
+          return res.json().then(err => Promise.reject(err));
+        }
+        // It's a less informative error returned by express
+        return Promise.reject({
+          code: res.status,
+          message: res.statusText
+        });
+      }
+      return;
+    })
     .then((res) => {
       dispatch(postQuestionSuccess(res))
-      //if the answer is correct increment correctAnswer, else increment incorrectAnswer
+      // //if the answer is correct increment correctAnswer, else increment incorrectAnswer
+      // if(answer){
+      //   increment Mvalue
+      // } else {
+      //   decrement Mvalue
+      // }
     })
     .catch(err => {
         console.error(err);

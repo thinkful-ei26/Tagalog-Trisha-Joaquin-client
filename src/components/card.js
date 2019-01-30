@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { reduxForm, Field, focus } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
@@ -40,13 +40,14 @@ export class Card extends Component {
             />
             <div className="response" />
           </form>
-          {/* <button 
+          <button 
             className="card-submit-button" 
             type="submit"
             disabled={pristine || submitting}
+            // onSubmit={console.log('clicked')}
           >
             Check your answer
-          </button> */}
+          </button>
         </fieldset>
       </div>
     );
@@ -54,5 +55,5 @@ export class Card extends Component {
 }
 export default reduxForm({
   form: 'card',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('answer', 'username')),
+  //onSubmitFail: (errors, dispatch) => dispatch(focus('card')),
 })(Card);

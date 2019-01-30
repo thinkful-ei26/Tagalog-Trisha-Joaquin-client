@@ -47,6 +47,7 @@ export default function reducer(state = initialState, action) {
       error: null
     });
   } else if (action.type === POST_QUESTION_SUCCESS) {
+    console.log('action',action)
     return Object.assign({}, state, {
       question: action.question,
       feedback: action.feedback
