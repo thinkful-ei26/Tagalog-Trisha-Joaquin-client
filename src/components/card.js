@@ -3,16 +3,17 @@ import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
-import { /* postQuestion,  */ } from '../actions/question';
+import { /* postQuestion, */ /* fetchQuestion */ } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
     //this.props.dispatch(fetchQuestion());
-    console.log('value of card input',value);
+    //console.log('value of card input',value);
     //this.props.dispatch(postQuestion(value.userinput));
   }
 
   render() {
+    //console.log('cards props: ', this.props)
     const { word, handleSubmit, pristine, submitting, } = this.props;
     return (
       <div className="card-wrapper">

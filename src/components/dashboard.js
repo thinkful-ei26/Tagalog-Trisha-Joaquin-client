@@ -3,20 +3,16 @@ import { connect } from 'react-redux';
 import { fetchQuestion } from '../actions/question';
 import requiresLogin from './requires-login';
 import Card from './card';
-// import AnswerFeedbackCorrect from './answer-feedback-correct';
-// import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
 export class Dashboard extends Component {
 
     componentDidMount(){
         this.props.dispatch(fetchQuestion())
-        console.log('questions fetched')
     }
     render() {
-        console.log('dashboard props', this.props);
-
-        // console.log('dashboard props', this.props.questionData[0].question.word);   
-
+        //console.log('dashboard props', this.props);
+        console.log('dashboard props', this.props.question.word);
+        const word = this.props.question.word;
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -26,8 +22,8 @@ export class Dashboard extends Component {
                 {/* <AnswerFeedbackCorrect />
                 <AnswerFeedbackIncorrect /> */}
                 <Card 
-                    answer={this.props.questionData[0].question.answer}
-                    word={this.props.questionData[0].question.word}
+                    // answer={this.props.questionData[0].question.answer}
+                    word={word}
                 />
             </div>
         );
@@ -35,13 +31,13 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-//console.log('dashboard state: ',state)
+console.log('dashboard state: ',state)
 //console.log('dashboard state: ',state.auth.currentUser.questionData)
-    const { username, name, questionData } = state.auth.currentUser;
+    const { username, name } = state.auth.currentUser;
     return {
         username,
         name,
-        questionData
+        question: state.question.question
     };
 };
 
