@@ -3,12 +3,12 @@ import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
-import { /* postQuestion, */ /* fetchQuestion */ } from '../actions/question';
+import { postAnswer } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
     console.log('value of card input',value);
-    //this.props.dispatch(postQuestion(value.userinput));
+    this.props.dispatch(postAnswer(value.userinput));
   }
 
 /*

@@ -2,9 +2,9 @@ import {
   FETCH_QUESTION_REQUEST,
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_ERROR,
-  // POST_QUESTION_SUCCESS,
-  // POST_QUESTION_REQUEST,
-  // POST_QUESTION_ERROR,
+  POST_ANSWER_SUCCESS,
+  POST_ANSWER_REQUEST,
+  POST_ANSWER_ERROR,
 } from '../actions/question';
 
 const initialState = {
@@ -27,7 +27,15 @@ export default function reducer(state = initialState, action) {
       error: null,
       feedback: null,
     });
-  } else if (action.type === FETCH_QUESTION_ERROR) {
+  } else if (action.type === POST_ANSWER_REQUEST) {
+    return Object.assign({}, state, { loading: true })
+  } else if (action.type === POST_ANSWER_SUCCESS) {
+    return Object.assign({}, state, {
+      answer: action.answer,
+      error: null,
+      feedback: null,
+    });
+  } else if (action.type === POST_ANSWER_ERROR) {
     return Object.assign({}, state, {
       error: action.error
     });
