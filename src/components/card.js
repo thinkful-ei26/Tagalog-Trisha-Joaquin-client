@@ -1,53 +1,67 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './card.css';
-import AnswerFeedbackCorrect from './answer-feedback-correct';
-import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
 export class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      submit: false,
-      feedback: 'incorrect'
+      answer: '',
+      feedback: null,
+      message:''
     };
   }
-  // If submit is true && answer is correct, then return AnsFeedCorrect, else return AnsFeedIncorrect
-  onSubmit(submit) {
-    this.setState({ submit });
+
+  handleAnswer(event) {
+    this.setState({
+      answer: event.target.value
+    });
+    console.log(this.state.answer);
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    if (this.state.answer === this.props.answer) {
+      this.setState({ feedback: 'correct', message:'You got it!' });
+    }else if(this.state.answer !== this.props.answer){
+      this.setState({feedback:'incorrect', message:'Nope'})
+    }
   }
 
-  onFeedback(feedback) {
-    this.setState = { feedback: 'correct' };
-  }
 
   render() {
     const { answer, word } = this.props;
+    
     return (
       <div className="card-wrapper">
         <fieldset>
-          <div className="card-answer-response">
-            <AnswerFeedbackCorrect />
-            <AnswerFeedbackIncorrect />
-          </div>
+          <div className="card-answer-response">{this.state.message}</div>
           <legend>Learn Tagalog</legend>
-          <form className="card-question-form" action="submit">
+          <form
+            className="card-question-form"
+            action="submit"
+          >
             <div className="question">
-              {' '}
               <h2>{word}</h2>
             </div>
+
             <Field
+              onChange={this.handleAnswer.bind(this)}
+              value={this.state.answer}
               component="input"
               className="card-input"
               type="text"
-              name="answer-input"
+              name="answer"
               placeholder="Your answer here"
               autoFocus={true}
               required={true}
             />
             <div className="response" />
           </form>
-          <button className="card-submit-button" type="submit">
+          <button
+            onClick={this.onSubmit.bind(this)}
+            className="card-submit-button"
+            type="submit"
+          >
             Check your answer
           </button>
         </fieldset>
