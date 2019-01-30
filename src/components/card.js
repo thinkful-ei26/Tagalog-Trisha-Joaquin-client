@@ -1,59 +1,58 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, focus } from 'redux-form';
 import '../styles/card.css';
-import AnswerFeedbackCorrect from './answer-feedback-correct';
-import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
+import { API_BASE_URL } from '../config';
+import { required, nonEmpty } from '../validators';
+import { postQuestion } from '../actions/question';
 
 export class Card extends Component {
-// constructor(props){
-//   this.state={
-//     submit: false,
-//     feedback: 'incorrect'
-//   }
-// }
-// If submit is true && answer is correct, then return AnsFeedCorrect, else return AnsFeedIncorrect
-// onSubmit(submit){
-//   this.setState({submit})
-// }
-
-// onFeedback(feedback){
-//   this.setState=({feedback:correct})
-// }
+  onSubmit(value) {
+    console.log('value of card input',value);
+    this.props.dispatch(postQuestion(value.userinput));
+  }
 
   render() {
-    const { answer, word } = this.props;
+    const { word, handleSubmit, pristine, submitting, } = this.props;
     return (
       <div className="card-wrapper">
         <fieldset>
           <div className="card-answer-response">
-            <AnswerFeedbackCorrect />
-            <AnswerFeedbackIncorrect />
           </div>
           <legend>Learn Tagalog</legend>
-          <form className="card-question-form" action="submit">
+          <form 
+            id="card-question-form"
+            className="card-question-form" 
+            onSubmit={ handleSubmit((values) => this.onSubmit(values))}
+          >
             <div className="question">
-              {' '}
               <h2>{word}</h2>
             </div>
             <Field
               component="input"
               className="card-input"
               type="text"
-              name="answer-input"
+              name="userinput"
               placeholder="Your answer here"
               autoFocus={true}
               required={true}
+              ref={input => this.input = input}
+              validate={[required, nonEmpty]}
             />
             <div className="response" />
           </form>
-          <button className="card-submit-button" type="submit">
+          {/* <button 
+            className="card-submit-button" 
+            type="submit"
+            disabled={pristine || submitting}
+          >
             Check your answer
-          </button>
+          </button> */}
         </fieldset>
       </div>
     );
   }
 }
 export default reduxForm({
-  form: 'card'
+  form: 'card',
+  onSubmitFail: (errors, dispatch) => dispatch(focus('answer', 'username')),
 })(Card);
