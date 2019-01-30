@@ -7,10 +7,16 @@ import { /* postQuestion, */ /* fetchQuestion */ } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
-    //this.props.dispatch(fetchQuestion());
-    //console.log('value of card input',value);
+    console.log('value of card input',value);
     //this.props.dispatch(postQuestion(value.userinput));
   }
+
+/*
+  1. check if it's not an empty field
+  2. if there is value, validate userInput, see if its the correct answer
+  3. feedback => correct
+  4. change the M value (change the order of the questions next)
+*/
 
   render() {
     //console.log('cards props: ', this.props)
