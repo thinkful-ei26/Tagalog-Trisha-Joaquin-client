@@ -1,27 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchQuestion } from '../actions/question';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
 import Card from './card';
+// import AnswerFeedbackCorrect from './answer-feedback-correct';
+// import AnswerFeedbackIncorrect from './answer-feedback-incorrect';
 
-export class Dashboard extends React.Component {
+export class Dashboard extends Component {
 
+    componentDidMount(){
+        this.props.dispatch(fetchQuestion())
+        console.log('questions fetched')
+    }
     render() {
-        console.log('dashboard props', this.props.questionData);
+        console.log('dashboard props', this.props);
 
-        // console.log('dashboard props', this.props.questionData[0].question.word);
-
-        // const { questionData } = this.props;
-
-        // const question = questionData.forEach( (item, index) => {
-        //     console.log('item: ' + item.question.word + ' index: ' + index)
-        //     return (
-        //         <li>
-        //             <p>{item.question.word}</p>
-        //             <p>{item.question.answer}</p>
-        //         </li>
-        //     )    
-        // })
+        // console.log('dashboard props', this.props.questionData[0].question.word);   
 
         return (
             <div className="dashboard">
@@ -29,6 +23,8 @@ export class Dashboard extends React.Component {
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>
                 </div>
+                {/* <AnswerFeedbackCorrect />
+                <AnswerFeedbackIncorrect /> */}
                 <Card 
                     answer={this.props.questionData[0].question.answer}
                     word={this.props.questionData[0].question.word}

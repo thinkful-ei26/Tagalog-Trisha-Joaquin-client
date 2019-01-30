@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  text-align: center;
+}
+.dashboard-username {
+  text-align: center;
+}
+
+.login-wrapper {
+  text-align: center;
+}
+
+.form-error {
+  color: #f45845;
+}
+
+input:focus {
+  border-left: none;
+  border-right: none;
+  border-color: rgb(161, 122, 122);
+}
