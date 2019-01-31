@@ -64,7 +64,7 @@ export class Card extends Component {
               component="input"
               className="card-input"
               type="text"
-              name="userinput" //*******userInput */
+              name="userinput"
               placeholder="Your answer here"
               autoFocus={true}
               required={true}
