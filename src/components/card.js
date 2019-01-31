@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { required, nonEmpty } from '../validators';
 import { postAnswer } from '../actions/question';
+import NextButton from './next-button';
 
 export class Card extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export class Card extends Component {
     this.state = {
       answer: '',
       feedback: null,
-      message: ''
+      message: '',
+      submit: false
     };
   }
   handleAnswer(event) {
@@ -24,30 +26,29 @@ export class Card extends Component {
     const { userinput } = value;
     const _answer = answer.toLowerCase();
     const correctInput = { word, id, userinput, answer };
-    
 
     value.preventDefault();
     if (this.state.answer === this.props.question.answer) {
-      this.setState({ feedback: 'correct', message: 'You got it!' });
+      this.setState({ feedback: 'correct', message: 'You got it!', submit: true });
     } else if (this.state.answer !== this.props.question.answer) {
       this.setState({
         feedback: 'incorrect',
-        message: `Incorrect. The answer is "${this.props.question.answer}"`
+        message: `Incorrect. The answer is "${this.props.question.answer}"`,
+        submit: true
       });
     }
-
   }
-
 
   render() {
     const { handleSubmit, pristine, submitting, word, answer } = this.props;
-    console.log('question.word',this.props.question.word)
-    console.log('answer',this.props.answer)
+    console.log('question.word', this.props.question.word);
+    console.log('answer', this.props.answer);
 
     return (
       <div className="card-wrapper">
         <fieldset>
-          <div className="card-answer-response" >{this.state.message}</div>
+          <div className="card-answer-response">{this.state.message}</div>
+          <NextButton />
           <legend>Learn Tagalog</legend>
           <form
             id="card-question-form"
@@ -76,11 +77,9 @@ export class Card extends Component {
               onClick={this.onSubmit.bind(this)}
               className="card-submit-button"
               type="submit"
-              
             >
               Check your answer
             </button>
-         
           </form>
         </fieldset>
       </div>
