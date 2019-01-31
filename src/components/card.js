@@ -14,6 +14,7 @@ export class Card extends Component {
       message: '',
       submit: false
     };
+    this.handleNext = this.handleNext.bind(this);
   }
   handleAnswer(event) {
     this.setState({
@@ -29,7 +30,11 @@ export class Card extends Component {
 
     value.preventDefault();
     if (this.state.answer === this.props.question.answer) {
-      this.setState({ feedback: 'correct', message: 'You got it!', submit: true });
+      this.setState({
+        feedback: 'correct',
+        message: 'You got it!',
+        submit: true
+      });
     } else if (this.state.answer !== this.props.question.answer) {
       this.setState({
         feedback: 'incorrect',
@@ -39,16 +44,26 @@ export class Card extends Component {
     }
   }
 
+  handleNext() {
+    // this.setState(state =>({
+
+    // }))
+  
+  }
+
   render() {
     const { handleSubmit, pristine, submitting, word, answer } = this.props;
     console.log('question.word', this.props.question.word);
     console.log('answer', this.props.answer);
+    // console.log('button buging', this.state.submit);
 
     return (
       <div className="card-wrapper">
         <fieldset>
           <div className="card-answer-response">{this.state.message}</div>
-          <NextButton />
+          <button className='next-button' disabled={false}>
+            Next
+          </button>
           <legend>Learn Tagalog</legend>
           <form
             id="card-question-form"
