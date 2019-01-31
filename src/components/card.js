@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
-//import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
 import { postAnswer } from '../actions/question';
 
@@ -37,31 +36,10 @@ export class Card extends Component {
       });
     }
 
-    // const _userinput = userinput.toLowerCase();
-
-    // if (_userinput === _answer) {
-    //   const correctInput = { word, id, userinput, answer };
-    //   console.log(
-    //     `You answered correctly! The word was ${word} and it means ${userinput}`,
-    //     correctInput
-    //   );
-    //this.props.dispatch(postAnswer(correctInput));
-    // } else {
-    //   console.log(
-    //     `${userinput} is incorrect. The word was ${word} and it means ${answer}`
-    //   );
-    // }
   }
 
-  /*
-  1. check if it's not an empty field
-  2. if there is value, validate userInput, see if its the correct answer
-  3. feedback => correct
-  4. change the M value (change the order of the questions next)
-*/
 
   render() {
-    //console.log('cards props: ', this.props)
     const { handleSubmit, pristine, submitting, word, answer } = this.props;
     console.log('question.word',this.props.question.word)
     console.log('answer',this.props.answer)
@@ -102,14 +80,7 @@ export class Card extends Component {
             >
               Check your answer
             </button>
-            {/* <button
-              className="card-submit-button"
-              type="submit"
-              disabled={pristine || submitting}
-              // onSubmit={console.log('clicked')}
-            >
-              Check your answer
-            </button> */}
+         
           </form>
         </fieldset>
       </div>
@@ -118,5 +89,4 @@ export class Card extends Component {
 }
 export default reduxForm({
   form: 'card'
-  //onSubmitFail: (errors, dispatch) => dispatch(focus('card')),
 })(Card);
