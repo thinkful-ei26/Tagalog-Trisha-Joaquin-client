@@ -27,6 +27,10 @@ export default function reducer(state = initialState, action) {
       error: null,
       feedback: null,
     });
+  } else if (action.type === FETCH_QUESTION_ERROR) {
+    return Object.assign({}, state, {
+      error: action.error
+    });
   } else if (action.type === POST_ANSWER_REQUEST) {
     return Object.assign({}, state, { loading: true })
   } else if (action.type === POST_ANSWER_SUCCESS) {

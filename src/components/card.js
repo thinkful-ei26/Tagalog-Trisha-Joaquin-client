@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
 import { required, nonEmpty } from '../validators';
-import { postAnswer } from '../actions/question';
-import NextButton from './next-button';
+//import { postAnswer } from '../actions/question';
+//import NextButton from './next-button';
 
 export class Card extends Component {
   constructor(props) {
@@ -20,27 +20,30 @@ export class Card extends Component {
     this.setState({
       answer: event.target.value
     });
-    console.log(this.state.answer);
+    //console.log(this.state.answer);
   }
+
   onSubmit(value) {
     const { answer, word, id } = this.props.question;
     const { userinput } = value;
-    const _answer = answer.toLowerCase();
-    const correctInput = { word, id, userinput, answer };
+    console.log('value',value);
+    const input = { word, id, userinput, answer };
 
     value.preventDefault();
-    if (this.state.answer === this.props.question.answer) {
+    if (this.state.answer === answer) {
       this.setState({
         feedback: 'correct',
         message: 'You got it!',
         submit: true
       });
-    } else if (this.state.answer !== this.props.question.answer) {
+      console.log('correct input: ',input);
+    } else if (this.state.answer !== answer) {
       this.setState({
         feedback: 'incorrect',
-        message: `Incorrect. The answer is "${this.props.question.answer}"`,
+        message: `Incorrect. The answer is "${answer}"`,
         submit: true
       });
+      console.log('incorrect input: ',input);
     }
   }
 
@@ -52,8 +55,8 @@ export class Card extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine, submitting, word, answer } = this.props;
-    console.log('question.word', this.props.question.word);
+    const { handleSubmit, pristine, submitting, } = this.props;
+    //console.log('question.word', this.props.question.word);
     console.log('answer', this.props.answer);
     // console.log('button buging', this.state.submit);
 
