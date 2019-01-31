@@ -159,4 +159,9 @@
         padding: 0;
         font-size: 1rem;
     }
+    .card-answer-response{
+        color: green;
+        padding: 2%;
+        font-size: 1.5rem;
+    }
   }
