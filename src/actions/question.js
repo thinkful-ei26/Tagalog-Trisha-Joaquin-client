@@ -53,6 +53,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
     return res.json()
   })
   .then( question => { 
+    console.log('question',question);
     dispatch(fetchQuestionSuccess(question))
   })
   .catch( error => { dispatch(fetchQuestionError(error))

@@ -11,8 +11,7 @@ export class Dashboard extends Component {
     }
     render() {
         //console.log('dashboard props', this.props);
-        //console.log('dashboard props', this.props.question.word);
-        const word = this.props.question.word;
+        const question = this.props.question;
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -21,9 +20,8 @@ export class Dashboard extends Component {
                 </div>
                 {/* <AnswerFeedbackCorrect />
                 <AnswerFeedbackIncorrect /> */}
-                <Card 
-                    // answer={this.props.questionData[0].question.answer}
-                    word={word}
+                <Card
+                    question={question}
                 />
             </div>
         );

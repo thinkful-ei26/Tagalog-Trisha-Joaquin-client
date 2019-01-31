@@ -7,8 +7,19 @@ import { postAnswer } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
+    const { answer } = this.props.question;
+    const { userinput } = value;
+    answer.toLowerCase();
+    userinput.toLowerCase();
+    
     console.log('value of card input',value);
-    this.props.dispatch(postAnswer(value.userinput));
+    if( userinput === answer){
+      console.log('correct')
+      //this.props.dispatch(postAnswer(value.userinput));
+    } 
+    else {
+      console.log('incorrect')
+    }
   }
 
 /*
@@ -20,9 +31,24 @@ export class Card extends Component {
 
   render() {
     //console.log('cards props: ', this.props)
-    const { word, handleSubmit, pristine, submitting, } = this.props;
+    const { handleSubmit, pristine, submitting, } = this.props;
+
+      /* ========= RENDER UI RESPONSES ========== */
+      // let correctMessage;
+      // if (correctInput) {
+      //   successMessage = (
+      //     <div className="message">
+      //       <span className="message-correct">
+      //         Correct!
+      //       </span>
+      //     </div>
+      //   );
+      // }
+
     return (
       <div className="card-wrapper">
+        {/* {correct}
+        {incorrect} */}
         <fieldset>
           <div className="card-answer-response">
           </div>
@@ -33,7 +59,7 @@ export class Card extends Component {
             onSubmit={ handleSubmit((values) => this.onSubmit(values))}
           >
             <div className="question">
-              <h2>{word}</h2>
+              <h2>{this.props.question.word}</h2>
             </div>
 
             <Field
