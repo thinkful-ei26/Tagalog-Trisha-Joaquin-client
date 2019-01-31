@@ -12,7 +12,8 @@ export class Card extends Component {
       answer: '',
       feedback: null,
       message: '',
-      submit: false
+      submit: false,
+      correct: null
     };
     this.handleNext = this.handleNext.bind(this);
   }
@@ -25,26 +26,28 @@ export class Card extends Component {
 
   onSubmit(value) {
     const { answer, word, id } = this.props.question;
-    const { userinput } = value;
-    console.log('value',value);
-    const input = { word, id, userinput, answer };
+    //console.log('value',value);
+    const input = { word, id };
 
     value.preventDefault();
     if (this.state.answer === answer) {
       this.setState({
         feedback: 'correct',
         message: 'You got it!',
-        submit: true
+        submit: true,
+        correct: true
       });
       console.log('correct input: ',input);
     } else if (this.state.answer !== answer) {
       this.setState({
         feedback: 'incorrect',
         message: `Incorrect. The answer is "${answer}"`,
-        submit: true
+        submit: true,
+        correct: false
       });
       console.log('incorrect input: ',input);
     }
+    //dispatch(fetchNextQuestion())
   }
 
   handleNext() {
@@ -58,6 +61,7 @@ export class Card extends Component {
     const { handleSubmit, pristine, submitting, } = this.props;
     //console.log('question.word', this.props.question.word);
     console.log('answer', this.props.answer);
+    console.log('correct state: ', this.state.correct);
     // console.log('button buging', this.state.submit);
 
     return (
