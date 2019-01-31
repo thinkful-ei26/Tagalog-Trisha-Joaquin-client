@@ -24,6 +24,8 @@ export class Card extends Component {
     const { answer, word, id } = this.props.question;
     const { userinput } = value;
     const _answer = answer.toLowerCase();
+    const correctInput = { word, id, userinput, answer };
+    
 
     value.preventDefault();
     if (this.state.answer === this.props.question.answer) {
@@ -84,7 +86,7 @@ export class Card extends Component {
               component="input"
               className="card-input"
               type="text"
-              name="name" //*******userInput */
+              name="userinput" //*******userInput */
               placeholder="Your answer here"
               autoFocus={true}
               required={true}
@@ -96,6 +98,7 @@ export class Card extends Component {
               onClick={this.onSubmit.bind(this)}
               className="card-submit-button"
               type="submit"
+              
             >
               Check your answer
             </button>
