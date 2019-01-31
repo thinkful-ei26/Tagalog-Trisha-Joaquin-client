@@ -18,24 +18,6 @@ export const fetchQuestionError = error => ({
   error
 });
 
-//send answer to server
-export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
-export const postAnswerRequest = () => ({
-  type: POST_ANSWER_REQUEST
-});
-
-export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
-export const postAnswerSuccess = answer => ({
-  type: POST_ANSWER_SUCCESS,
-  answer
-});
-
-export const POST_ANSWER_ERROR = 'POST_QUESTION_ERROR';
-export const postAnswerError = error => ({
-  type: POST_ANSWER_ERROR,
-  error
-});
-
 export const fetchQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
@@ -60,25 +42,44 @@ export const fetchQuestion = () => (dispatch, getState) => {
   });
 }
 
-export const postAnswer = (answer) => (dispatch, getState) => {
-  const authToken = getState().auth.authToken;
-  dispatch(postAnswerRequest());
-  return fetch(`${API_BASE_URL}/question`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${authToken}`
-    }
-  })
-  .then(res => normalizeResponseErrors(res))
-  .then(res => {
-    if(!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json()
-  })
-  .then( answer => { 
-    dispatch(postAnswerSuccess(answer))
-  })
-  .catch( error => { dispatch(postAnswerError(error))
-  });
-}
+
+//send answer to server
+export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
+export const postAnswerRequest = () => ({
+  type: POST_ANSWER_REQUEST
+});
+
+export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
+export const postAnswerSuccess = question => ({
+  type: POST_ANSWER_SUCCESS,
+  question
+});
+
+export const POST_ANSWER_ERROR = 'POST_QUESTION_ERROR';
+export const postAnswerError = error => ({
+  type: POST_ANSWER_ERROR,
+  error
+});
+
+// export const postAnswer = (answer) => (dispatch, getState) => {
+//   const authToken = getState().auth.authToken;
+//   dispatch(postAnswerRequest());
+//   return fetch(`${API_BASE_URL}/question`, {
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Bearer ${authToken}`
+//     }
+//   })
+//   .then(res => normalizeResponseErrors(res))
+//   .then(res => {
+//     if(!res.ok) {
+//       return Promise.reject(res.statusText);
+//     }
+//     return res.json()
+//   })
+//   .then( question => { 
+//     dispatch(postAnswerSuccess(question))
+//   })
+//   .catch( error => { dispatch(postAnswerError(error))
+//   });
+// }

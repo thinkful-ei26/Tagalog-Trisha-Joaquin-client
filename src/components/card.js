@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import '../styles/card.css';
-import { API_BASE_URL } from '../config';
+//import { API_BASE_URL } from '../config';
 import { required, nonEmpty } from '../validators';
 import { postAnswer } from '../actions/question';
 
 export class Card extends Component {
   onSubmit(value) {
-    const { answer } = this.props.question;
+    const { answer, word, id } = this.props.question;
     const { userinput } = value;
-    answer.toLowerCase();
-    userinput.toLowerCase();
-    
-    console.log('value of card input',value);
-    if( userinput === answer){
-      console.log('correct')
-      //this.props.dispatch(postAnswer(value.userinput));
+    const _answer = answer.toLowerCase();
+    const _userinput = userinput.toLowerCase();
+
+    if( _userinput === _answer){
+      const correctInput = { word, id, userinput, answer};
+      console.log(`You answered correctly! The word was ${word} and it means ${userinput}`,correctInput);
+      //this.props.dispatch(postAnswer(correctInput));
     } 
     else {
-      console.log('incorrect')
+      console.log(`${userinput} is incorrect. The word was ${word} and it means ${answer}`);
     }
   }
 
