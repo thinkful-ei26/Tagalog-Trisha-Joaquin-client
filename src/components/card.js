@@ -68,9 +68,6 @@ export class Card extends Component {
       <div className="card-wrapper">
         <fieldset>
           <div className="card-answer-response">{this.state.message}</div>
-          <button className='next-button' disabled={false}>
-            Next
-          </button>
           <legend>Learn Tagalog</legend>
           <form
             id="card-question-form"
@@ -102,6 +99,11 @@ export class Card extends Component {
             >
               Check your answer
             </button>
+            <br />
+            <br />
+            <button className='next-button' disabled={false}>
+            Next
+          </button>
           </form>
         </fieldset>
       </div>

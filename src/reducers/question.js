@@ -2,6 +2,7 @@ import {
   FETCH_QUESTION_REQUEST,
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_ERROR,
+  NEXT_QUESTION,
   POST_ANSWER_SUCCESS,
   POST_ANSWER_REQUEST,
   POST_ANSWER_ERROR,
@@ -12,6 +13,7 @@ const initialState = {
   error: null,
   loading: false,
   feedback: null,
+  next: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -30,6 +32,10 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
       error: action.error
+    });
+  } else if (action.type === NEXT_QUESTION) {
+    return Object.assign({}, state, {
+      next: action.next + 1
     });
   } else if (action.type === POST_ANSWER_REQUEST) {
     return Object.assign({}, state, { loading: true })

@@ -42,6 +42,12 @@ export const fetchQuestion = () => (dispatch, getState) => {
   });
 }
 
+export const NEXT_QUESTION = 'NEXT_QUESTION';
+export const nextQuestion = (userid, question) => ({
+  type: NEXT_QUESTION,
+  userid,
+  question
+});
 
 //send answer to server
 export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
@@ -64,8 +70,8 @@ export const postAnswerError = error => ({
 // export const postAnswer = (answer) => (dispatch, getState) => {
 //   const authToken = getState().auth.authToken;
 //   dispatch(postAnswerRequest());
-//   return fetch(`${API_BASE_URL}/question`, {
-//     method: 'GET',
+//   return fetch(`${API_BASE_URL}/question/next`, {
+//     method: 'PUT',
 //     headers: {
 //       Authorization: `Bearer ${authToken}`
 //     }
