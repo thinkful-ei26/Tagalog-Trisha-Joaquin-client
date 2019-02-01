@@ -62,7 +62,7 @@ export class Card extends Component {
     /* ========= CORRECT FEEDBACK ========== */
     if (correct) {
       return (
-        <div className="card-answer-response">
+        <div className="correct-response">
           <h3>{this.state.message}</h3>
           <button
             className="next-button"
@@ -77,7 +77,7 @@ export class Card extends Component {
     /* ========= INCORRECT FEEDBACK ========== */
     if (correct === false) {
       return (
-        <div className="card-answer-response">
+        <div className="incorrect-response">
           <h3>{this.state.message}</h3>
           <button
             className="next-button"
