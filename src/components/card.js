@@ -12,6 +12,8 @@ export class Card extends Component {
     const _answer = answer.toLowerCase();
     const _userinput = userinput.toLowerCase();
 
+    let correctInput;
+    let incorrectInput;
     if( _userinput === _answer){
       const correctInput = { word, id, userinput, answer};
       console.log(`You answered correctly! The word was ${word} and it means ${userinput}`,correctInput);
