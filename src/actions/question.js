@@ -35,57 +35,72 @@ export const fetchQuestion = () => (dispatch, getState) => {
     return res.json()
   })
   .then( question => { 
-    console.log('question',question);
+    console.log('action question:',question);
     dispatch(fetchQuestionSuccess(question))
   })
   .catch( error => { dispatch(fetchQuestionError(error))
   });
 }
 
-export const NEXT_QUESTION = 'NEXT_QUESTION';
-export const nextQuestion = (userid, question) => ({
-  type: NEXT_QUESTION,
-  userid,
-  question
-});
-
 //send answer to server
-export const POST_ANSWER_REQUEST = 'POST_ANSWER_REQUEST';
-export const postAnswerRequest = () => ({
-  type: POST_ANSWER_REQUEST
+export const PUT_REQUEST = 'PUT_REQUEST';
+export const putRequest = () => ({
+  type: PUT_REQUEST
 });
 
-export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
-export const postAnswerSuccess = question => ({
-  type: POST_ANSWER_SUCCESS,
+export const PUT_SUCCESS = 'PUT_SUCCESS';
+export const putSuccess = question => ({
+  type: PUT_SUCCESS,
   question
 });
 
-export const POST_ANSWER_ERROR = 'POST_QUESTION_ERROR';
-export const postAnswerError = error => ({
-  type: POST_ANSWER_ERROR,
+export const PUT_ERROR = 'PUT_ERROR';
+export const putError = error => ({
+  type: PUT_ERROR,
   error
 });
 
-// export const postAnswer = (answer) => (dispatch, getState) => {
-//   const authToken = getState().auth.authToken;
-//   dispatch(postAnswerRequest());
-//   return fetch(`${API_BASE_URL}/question/next`, {
-//     method: 'PUT',
-//     headers: {
-//       Authorization: `Bearer ${authToken}`
-//     }
-//   })
-//   .then(res => normalizeResponseErrors(res))
-//   .then(res => {
-//     if(!res.ok) {
-//       return Promise.reject(res.statusText);
-//     }
-//     return res.json()
-//   })
-//   .then( question => { 
-//     dispatch(postAnswerSuccess(question))
-//   })
-//   .catch( error => { dispatch(postAnswerError(error))
-//   });
-// }
+// export const NEXT_QUESTION = 'NEXT_QUESTION';
+// export const nextQuestion = question => ({
+//   type: NEXT_QUESTION,
+//   question
+// });
+
+let nextquestion;
+
+export const fetchNextQuestion = (id, answer) => (dispatch, getState) => {
+  console.log('sending changes to previous question', JSON.stringify(answer))
+  const authToken = getState().auth.authToken;
+  dispatch(putRequest());
+  return fetch(`${API_BASE_URL}/question/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({answer: answer})
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => {
+    if(!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    //console.log('from server: ',res)
+    return res.json()
+  })
+  .then( question => { 
+    dispatch(fetchQuestionSuccess(question));
+    console.log('next question rendered: ',question);
+    return question;
+  })
+  .then(question => {
+    // console.log('inside nextquestion: ', question);
+    // dispatch(nextQuestion(question))
+    nextquestion = question;
+    return nextquestion;
+  })
+  .catch( error => { dispatch(putError(error))
+  });
+}
+
+console.log(nextquestion);

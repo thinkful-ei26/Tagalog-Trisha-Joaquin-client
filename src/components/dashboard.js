@@ -11,6 +11,7 @@ export class Dashboard extends Component {
     }
     render() {
         //console.log('dashboard props', this.props);
+        const { id } = this.props;
         const question = this.props.question;
         return (
             <div className="dashboard">
@@ -18,10 +19,9 @@ export class Dashboard extends Component {
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>
                 </div>
-                {/* <AnswerFeedbackCorrect />
-                <AnswerFeedbackIncorrect /> */}
                 <Card
                     question={question}
+                    id={id}
                 />
             </div>
         );
@@ -30,12 +30,12 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
 //console.log('dashboard state: ',state)
-//console.log('dashboard state: ',state.auth.currentUser.questionData)
-    const { username, name } = state.auth.currentUser;
+    const { username, name, id } = state.auth.currentUser;
     return {
         username,
         name,
-        question: state.question.question
+        question: state.question.question, 
+        id
     };
 };
 

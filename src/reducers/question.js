@@ -3,9 +3,9 @@ import {
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_ERROR,
   NEXT_QUESTION,
-  POST_ANSWER_SUCCESS,
-  POST_ANSWER_REQUEST,
-  POST_ANSWER_ERROR,
+  PUT_SUCCESS,
+  PUT_REQUEST,
+  PUT_ERROR,
 } from '../actions/question';
 
 const initialState = {
@@ -21,34 +21,40 @@ export default function reducer(state = initialState, action) {
   // console.log('action on question reducer', action);
   if (action.type === FETCH_QUESTION_REQUEST){
     return Object.assign({}, state, { loading: true })
-  }
-  else if (action.type === FETCH_QUESTION_SUCCESS) {
-    //console.log('state question reducer',state)
+  } else if (action.type === FETCH_QUESTION_SUCCESS) {
     return Object.assign({}, state, {
       question: action.question,
       error: null,
       feedback: null,
+      loading: false
     });
   } else if (action.type === FETCH_QUESTION_ERROR) {
-    return Object.assign({}, state, {
-      error: action.error
+      return Object.assign({}, state, {
+        error: action.error,
+        loading: false
     });
-  } else if (action.type === NEXT_QUESTION) {
-    return Object.assign({}, state, {
-      next: action.next + 1
+  } else if (action.type === PUT_REQUEST) {
+      return Object.assign({}, state, { loading: true })
+  } else if (action.type === PUT_SUCCESS) {
+    // console.log('reducer question state: ',state);
+    // console.log('reducer question action: ',action)
+      return Object.assign({}, state, {
+        answer: action.answer,
+        error: null,
+        feedback: null,
+        loading: false
     });
-  } else if (action.type === POST_ANSWER_REQUEST) {
-    return Object.assign({}, state, { loading: true })
-  } else if (action.type === POST_ANSWER_SUCCESS) {
-    return Object.assign({}, state, {
-      answer: action.answer,
-      error: null,
-      feedback: null,
+  } else if (action.type === PUT_ERROR) {
+      return Object.assign({}, state, {
+        error: action.error,
+        loading: false
     });
-  } else if (action.type === POST_ANSWER_ERROR) {
-    return Object.assign({}, state, {
-      error: action.error
-    });
-  } 
+  // } else if (action.type === NEXT_QUESTION){
+  //   console.log('action next: ', action);
+  //   console.log('state next: ', state);
+  //   return Object.assign({}, state, {
+  //     question: action.question
+  //   })
+  }
   return state;
 }

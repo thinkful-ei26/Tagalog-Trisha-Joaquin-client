@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import '../styles/card.css';
 import { required, nonEmpty } from '../validators';
-//import { postAnswer } from '../actions/question';
-//import NextButton from './next-button';
+import { fetchNextQuestion } from '../actions/question';
+import '../styles/card.css';
 
 export class Card extends Component {
   constructor(props) {
@@ -15,57 +14,80 @@ export class Card extends Component {
       submit: false,
       correct: null
     };
-    this.handleNext = this.handleNext.bind(this);
   }
+  
   handleAnswer(event) {
     this.setState({
       answer: event.target.value
     });
-    //console.log(this.state.answer);
   }
 
   onSubmit(value) {
-    const { answer, word, id } = this.props.question;
-    //console.log('value',value);
+    const { word, id } = this.props.question;
+    let userinput = this.state.answer.toLowerCase();
+    let answer = this.props.question.answer.toLowerCase();
     const input = { word, id };
 
     value.preventDefault();
-    if (this.state.answer === answer) {
+    if (userinput === answer) {
       this.setState({
         feedback: 'correct',
-        message: 'You got it!',
+        message: `You got it! "${word}" is "${userinput}".`,
         submit: true,
-        correct: true
+        correct: true, 
       });
-      console.log('correct input: ',input);
-    } else if (this.state.answer !== answer) {
+      console.log('correct input: ',this.state);
+    } else if (userinput !== answer) {
       this.setState({
         feedback: 'incorrect',
-        message: `Incorrect. The answer is "${answer}"`,
+        message: `"${userinput}" is incorrect. The answer is "${answer}"`,
         submit: true,
         correct: false
       });
       console.log('incorrect input: ',input);
     }
-    //dispatch(fetchNextQuestion())
-  }
-
-  handleNext() {
-    // this.setState(state =>({
-
-    // }))
-  
   }
 
   render() {
-    const { handleSubmit, pristine, submitting, } = this.props;
-    //console.log('question.word', this.props.question.word);
-    console.log('answer', this.props.answer);
-    console.log('correct state: ', this.state.correct);
-    // console.log('button buging', this.state.submit);
-
+    //console.log('card state', this.state)
+    console.log('card props', this.props)
+    const { handleSubmit, pristine, submitting, id, question } = this.props;
+    const { correct } = this.state;
+  
+    /* ========= CORRECT FEEDBACK ========== */
+    if(correct){
+      return(
+        <div className="correct-feedback">
+          <h3>{this.state.message}</h3>
+          <button 
+            className='next-button' 
+            disabled={pristine || submitting}
+            onClick={ () => this.props.dispatch(fetchNextQuestion(id, question)) }
+          >
+            Next
+          </button>
+        </div>
+      )
+    }
+  /* ========= INCORRECT FEEDBACK ========== */
+    if(correct === false){
+      return(
+        <div className="correct-feedback">
+          <h3>{this.state.message}</h3>
+          <button 
+            className='next-button' 
+            disabled={pristine || submitting}
+            onClick={ () => this.props.dispatch(fetchNextQuestion(id, question)) }
+          >
+          Next
+          </button>
+        </div>
+      )
+    }
+    
     return (
       <div className="card-wrapper">
+      <p><strong>Progress: </strong>{`${this.props.question.head}/10`}</p>
         <fieldset>
           <div className="card-answer-response">{this.state.message}</div>
           <legend>Learn Tagalog</legend>
@@ -92,18 +114,15 @@ export class Card extends Component {
               validate={[required, nonEmpty]}
             />
             <div className="response" />
+            {/* ========= ANSWER SUBMIT BUTTON ==========  */}
             <button
               onClick={this.onSubmit.bind(this)}
               className="card-submit-button"
               type="submit"
+              disabled={pristine || submitting}
             >
               Check your answer
             </button>
-            <br />
-            <br />
-            <button className='next-button' disabled={false}>
-            Next
-          </button>
           </form>
         </fieldset>
       </div>
