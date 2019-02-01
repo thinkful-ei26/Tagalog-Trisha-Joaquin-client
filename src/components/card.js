@@ -27,6 +27,7 @@ export class Card extends Component {
     let userinput = this.state.answer.toLowerCase();
     let answer = this.props.question.answer.toLowerCase();
     const input = { word, id };
+    //console.log('input',input)
 
     value.preventDefault();
     if (userinput === answer) {
@@ -36,7 +37,7 @@ export class Card extends Component {
         submit: true,
         correct: true, 
       });
-      console.log('correct input: ',this.state);
+      //console.log('correct input: ',this.state);
     } else if (userinput !== answer) {
       this.setState({
         feedback: 'incorrect',
@@ -44,7 +45,7 @@ export class Card extends Component {
         submit: true,
         correct: false
       });
-      console.log('incorrect input: ',input);
+      //console.log('incorrect input: ',input);
     }
   }
 
@@ -53,7 +54,9 @@ export class Card extends Component {
     //console.log('card props', this.props)
     const { handleSubmit, pristine, submitting, id, question } = this.props;
     const { correct } = this.state;
-  
+    question.userinput = this.state.answer;
+    //console.log('QUESTION CARD: ', question)
+
     /* ========= CORRECT FEEDBACK ========== */
     if(correct){
       return(
