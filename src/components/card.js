@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { required, nonEmpty } from '../validators';
-import { fetchNextQuestion } from '../actions/question';
+import { putAnswer, updateCorrect } from '../actions/question';
 import '../styles/card.css';
 
 export class Card extends Component {
@@ -11,11 +12,11 @@ export class Card extends Component {
       answer: '',
       feedback: null,
       message: '',
-      submit: false,
-      correct: null
+      submit: false
+      // correct: null //
     };
   }
-  
+
   handleAnswer(event) {
     this.setState({
       answer: event.target.value
@@ -34,63 +35,67 @@ export class Card extends Component {
       this.setState({
         feedback: 'correct',
         message: `You got it! "${word}" is "${userinput}".`,
-        submit: true,
-        correct: true, 
+        submit: true
       });
+      this.props.dispatch(updateCorrect(true));
       //console.log('correct input: ',this.state);
     } else if (userinput !== answer) {
       this.setState({
         feedback: 'incorrect',
         message: `"${userinput}" is incorrect. The answer is "${answer}"`,
-        submit: true,
-        correct: false
+        submit: true
       });
       //console.log('incorrect input: ',input);
+      this.props.dispatch(updateCorrect(false));
     }
   }
 
   render() {
+    console.log('LOGGING',this.props)
     //console.log('card state', this.state)
     //console.log('card props', this.props)
     const { handleSubmit, pristine, submitting, id, question } = this.props;
-    const { correct } = this.state;
+    const { correct } = this.props;
     question.userinput = this.state.answer;
     //console.log('QUESTION CARD: ', question)
 
     /* ========= CORRECT FEEDBACK ========== */
-    if(correct){
-      return(
+    if (correct) {
+      return (
         <div className="correct-feedback">
           <h3>{this.state.message}</h3>
-          <button 
-            className='next-button' 
+          <button
+            className="next-button"
             disabled={pristine || submitting}
-            onClick={ () => this.props.dispatch(fetchNextQuestion(id, question)) }
+            onClick={() => this.props.dispatch(putAnswer(id, question))}
           >
             Next
           </button>
         </div>
-      )
+      );
     }
-  /* ========= INCORRECT FEEDBACK ========== */
-    if(correct === false){
-      return(
+    /* ========= INCORRECT FEEDBACK ========== */
+    if (correct === false) {
+      return (
         <div className="correct-feedback">
           <h3>{this.state.message}</h3>
-          <button 
-            className='next-button' 
+          <button
+            className="next-button"
             disabled={pristine || submitting}
-            onClick={ () => this.props.dispatch(fetchNextQuestion(id, question)) }
+            onClick={() => this.props.dispatch(putAnswer(id, question))}
           >
-          Next
+            Next
           </button>
         </div>
-      )
+      );
     }
-    
+
     return (
       <div className="card-wrapper">
-      <p><strong>Progress: </strong>{`${this.props.question.head}/10`}</p>
+        <p>
+          <strong>Progress: </strong>
+          {`${this.props.question.head}/10`}
+        </p>
         <fieldset>
           <div className="card-answer-response">{this.state.message}</div>
           <legend>Learn Tagalog</legend>
@@ -132,6 +137,13 @@ export class Card extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  correct: state.question.correct
+});
+
+Card = connect(mapStateToProps)(Card);
+
 export default reduxForm({
   form: 'card'
 })(Card);

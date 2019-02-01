@@ -1,5 +1,11 @@
 import { API_BASE_URL } from '../config';
-import {normalizeResponseErrors} from './utils';
+import { normalizeResponseErrors } from './utils';
+
+export const UPDATE_CORRECT = 'UPDATE_CORRECT';
+export const updateCorrect = bool => ({
+  type: UPDATE_CORRECT,
+  bool
+});
 
 export const FETCH_QUESTION_REQUEST = 'FETCH_QUESTION_REQUEST';
 export const fetchQuestionRequest = () => ({
@@ -27,20 +33,21 @@ export const fetchQuestion = () => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-  .then(res => normalizeResponseErrors(res))
-  .then(res => {
-    if(!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json()
-  })
-  .then( question => { 
-    console.log('action question:',question);
-    dispatch(fetchQuestionSuccess(question))
-  })
-  .catch( error => { dispatch(fetchQuestionError(error))
-  });
-}
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(question => {
+      console.log('on mount:', question);
+      return dispatch(fetchQuestionSuccess(question));
+    })
+    .catch(error => {
+      dispatch(fetchQuestionError(error));
+    });
+};
 
 //send answer to server
 export const PUT_REQUEST = 'PUT_REQUEST';
@@ -67,33 +74,39 @@ export const putError = error => ({
 // });
 
 let nextquestion;
-
-export const fetchNextQuestion = (id, answer) => (dispatch, getState) => {
-  console.log('sending changes to previous question', JSON.stringify(answer))
+//fetchNextQuestion only renders on 'refresh' why?
+// this is a put so maybe call it a put. answerQuestion
+export const putAnswer = (id, answer) => (dispatch, getState) => {
+  // console.log('sending changes to previous question', JSON.stringify(answer))
   const authToken = getState().auth.authToken;
+  console.log('putAnswer called');
   dispatch(putRequest());
   return fetch(`${API_BASE_URL}/question/${id}`, {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${authToken}`,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({answer: answer})
+    body: JSON.stringify({ answer: answer })
   })
-  .then(res => normalizeResponseErrors(res))
-  .then(res => {
-    if(!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    //console.log('from server: ',res)
-    return res.json()
-  })
-  .then( question => { 
-    dispatch(fetchQuestionSuccess(question));
-    return question;
-  })
-  .catch( error => { dispatch(putError(error))
-  });
-}
+    // .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+    //   console.log('fetchNextQuestion ', res);
+    //   return res.json();
+    // })
+    // .then(question => {
+      console.log('Put fired successfully');
+      // dispatch(fetchQuestionSuccess(question));
+      return dispatch(fetchQuestion());
+      // return question;
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch(putError(error));
+    });
+};
 
-console.log(nextquestion);
+// console.log('next question',nextquestion);
