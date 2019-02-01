@@ -62,7 +62,7 @@ export class Card extends Component {
     /* ========= CORRECT FEEDBACK ========== */
     if (correct) {
       return (
-        <div className="correct-feedback">
+        <div className="card-answer-response">
           <h3>{this.state.message}</h3>
           <button
             className="next-button"
@@ -77,7 +77,7 @@ export class Card extends Component {
     /* ========= INCORRECT FEEDBACK ========== */
     if (correct === false) {
       return (
-        <div className="correct-feedback">
+        <div className="card-answer-response">
           <h3>{this.state.message}</h3>
           <button
             className="next-button"
@@ -97,7 +97,7 @@ export class Card extends Component {
           {`${this.props.question.head}/10`}
         </p>
         <fieldset>
-          <div className="card-answer-response">{this.state.message}</div>
+          {/* <div className="card-answer-response">{this.state.message}</div> */}
           <legend>Learn Tagalog</legend>
           <form
             id="card-question-form"
