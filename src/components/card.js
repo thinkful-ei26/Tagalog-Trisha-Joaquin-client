@@ -50,7 +50,7 @@ export class Card extends Component {
 
   render() {
     //console.log('card state', this.state)
-    console.log('card props', this.props)
+    //console.log('card props', this.props)
     const { handleSubmit, pristine, submitting, id, question } = this.props;
     const { correct } = this.state;
   

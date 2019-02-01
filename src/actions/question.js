@@ -90,14 +90,7 @@ export const fetchNextQuestion = (id, answer) => (dispatch, getState) => {
   })
   .then( question => { 
     dispatch(fetchQuestionSuccess(question));
-    console.log('next question rendered: ',question);
     return question;
-  })
-  .then(question => {
-    // console.log('inside nextquestion: ', question);
-    // dispatch(nextQuestion(question))
-    nextquestion = question;
-    return nextquestion;
   })
   .catch( error => { dispatch(putError(error))
   });

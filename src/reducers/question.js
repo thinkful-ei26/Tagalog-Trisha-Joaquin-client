@@ -13,7 +13,7 @@ const initialState = {
   error: null,
   loading: false,
   feedback: null,
-  next: 0,
+  next: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -36,13 +36,14 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === PUT_REQUEST) {
       return Object.assign({}, state, { loading: true })
   } else if (action.type === PUT_SUCCESS) {
-    // console.log('reducer question state: ',state);
+    console.log('reducer question state: ',state);
+    console.log('reducer question action: ',action);
     // console.log('reducer question action: ',action)
       return Object.assign({}, state, {
-        answer: action.answer,
+        // answer: action.answer,
         error: null,
         feedback: null,
-        loading: false
+        loading: false,
     });
   } else if (action.type === PUT_ERROR) {
       return Object.assign({}, state, {
