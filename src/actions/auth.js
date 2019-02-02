@@ -1,10 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config'; 
 import {normalizeResponseErrors} from './utils';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
-
-console.log('API_BASE_URL on auth client', API_BASE_URL);
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
@@ -34,8 +32,8 @@ export const authError = error => ({
     error
 });
 
-// Stores the auth token in state and localStorage, and decodes and stores
-// the user data stored in the token
+// User data is stored in the auth token via state and localStorage
+// if successful, decodes the auth token
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
@@ -57,8 +55,7 @@ export const login = (username, password) => dispatch => {
             })
         })
             // Reject any requests which don't return a 200 status, creating
-            // errors which follow a consistent format
-            .then(res => normalizeResponseErrors(res))
+            .then(res => normalizeResponseErrors(res))  // errors which follow a consistent format
             .then(res => res.json())
             .then(({authToken}) => storeAuthInfo(authToken, dispatch))
             .catch(err => {

@@ -13,7 +13,6 @@ export class Card extends Component {
       feedback: null,
       message: '',
       submit: false
-      // correct: null //
     };
   }
 
@@ -28,7 +27,6 @@ export class Card extends Component {
     let userinput = this.state.answer.toLowerCase();
     let answer = this.props.question.answer.toLowerCase();
     const input = { word, id };
-    //console.log('input',input)
 
     value.preventDefault();
     if (userinput === answer) {
@@ -51,7 +49,7 @@ export class Card extends Component {
   }
 
   render() {
-    console.log('LOGGING',this.props)
+    //console.log('LOGGING',this.props)
     //console.log('card state', this.state)
     //console.log('card props', this.props)
     const { handleSubmit, pristine, submitting, id, question } = this.props;
