@@ -6,14 +6,17 @@ console.log('API_BASE_URL REGISTER USER', API_BASE_URL);
 
 //make a POST req on api/users, pass in the user info as req.body
 export const registerUser = user => dispatch => {
-    return fetch(`${API_BASE_URL}/api/users`, {
+    return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(user)
     })
-        .then(res => normalizeResponseErrors(res)) //call utility method in src/actions/utils.js to normalize the response error
+        .then(res => {
+            console.log('REACHING USER ENDPOINT')
+            normalizeResponseErrors(res)
+        }) //call utility method in src/actions/utils.js to normalize the response error
         .then(res => res.json())
         .catch(err => {
             const {reason, message, location} = err;
