@@ -26,7 +26,7 @@ export function LandingPage(props) {
       </fieldset>
 
       <LoginForm />
-      <Link to="/register">Register</Link>
+      <Link to="/register" className="register-link">Register</Link>
     </div>
   );
 }

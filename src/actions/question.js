@@ -73,7 +73,6 @@ export const putError = error => ({
 //   question
 // });
 
-let nextquestion;
 //fetchNextQuestion only renders on 'refresh' why?
 // this is a put so maybe call it a put. answerQuestion
 export const putAnswer = (id, answer) => (dispatch, getState) => {
@@ -108,5 +107,3 @@ export const putAnswer = (id, answer) => (dispatch, getState) => {
       dispatch(putError(error));
     });
 };
-
-// console.log('next question',nextquestion);

@@ -24,3 +24,46 @@ input:focus {
   border-right: none;
   border-color: rgb(161, 122, 122);
 }
+
+.home {
+  margin-top: 30px;
+}
+
+#username, #password, #name, #passwordConfirm {
+  width: 40%;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.login-btn, .register-btn {
+  padding: 2%;
+  background-color: rgb(161, 122, 122);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 10px;
+  border-radius: 4%;
+  margin: 10px;
+}
+
+.login-btn:hover, .register-btn:hover {
+  background-color: rgb(126, 91, 91);
+}
+
+.register-link, .login-link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 2%;
+  background-color: rgb(161, 122, 122);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 10px;
+  border-radius: 4%;
+  margin: 10px;
+}
+
+.register-link:hover, .login-link:hover {
+  background-color: rgb(126, 91, 91);
+}

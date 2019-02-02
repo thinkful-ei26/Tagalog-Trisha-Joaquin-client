@@ -23,10 +23,9 @@ export class Card extends Component {
   }
 
   onSubmit(value) {
-    const { word, id } = this.props.question;
+    const { word } = this.props.question;
     let userinput = this.state.answer.toLowerCase();
     let answer = this.props.question.answer.toLowerCase();
-    const input = { word, id };
 
     value.preventDefault();
     if (userinput === answer) {
@@ -95,7 +94,6 @@ export class Card extends Component {
           {`${this.props.question.head}/10`}
         </p>
         <fieldset>
-          {/* <div className="card-answer-response">{this.state.message}</div> */}
           <legend>Learn Tagalog</legend>
           <form
             id="card-question-form"
