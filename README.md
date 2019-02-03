@@ -5,7 +5,7 @@
 - **[Client Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-client.git)**
 - **[Server Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-server)**
 - **Deployed Client URL:**  [https://frozen-garden-93870.herokuapp.com/](https://frozen-garden-93870.herokuapp.com/) 
-- **Deployed Server** [placeholder]()
+- **Deployed Server** [https://radiant-garden-12315.herokuapp.com/](https://radiant-garden-12315.herokuapp.com/)
 
 ## Instructions for Developers
 In development, your local machine should have [Node.js](https://nodejs.org/en/) and [Mongo](https://www.mongodb.com/) set up
