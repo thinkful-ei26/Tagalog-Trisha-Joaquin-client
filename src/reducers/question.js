@@ -3,7 +3,7 @@ import {
   FETCH_QUESTION_REQUEST,
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_ERROR,
-  // NEXT_QUESTION,
+  // PROGRESS,
   PUT_SUCCESS,
   PUT_REQUEST,
   PUT_ERROR
@@ -15,15 +15,14 @@ const initialState = {
   error: null,
   loading: false,
   feedback: null,
-  next: null
+  next: null,
+  // counter: 0
 };
 
 export default function reducer(state = initialState, action) {
   if (action.type === UPDATE_CORRECT) {
     return Object.assign({}, state, { correct: action.bool });
   }
-  // console.log('state on question reducer', state);
-  // console.log('action on question reducer', action);
   if (action.type === FETCH_QUESTION_REQUEST) {
     return Object.assign({}, state, { loading: true });
   } else if (action.type === FETCH_QUESTION_SUCCESS) {
@@ -32,7 +31,8 @@ export default function reducer(state = initialState, action) {
       error: null,
       feedback: null,
       loading: false,
-      correct: null
+      correct: null,
+      // counter: action.counter
     });
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
@@ -42,11 +42,7 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === PUT_REQUEST) {
     return Object.assign({}, state, { loading: true });
   } else if (action.type === PUT_SUCCESS) {
-    console.log('reducer question state: ', state);
-    console.log('reducer question action: ', action);
-    // console.log('reducer question action: ',action)
     return Object.assign({}, state, {
-      // answer: action.answer,
       error: null,
       feedback: null,
       loading: false
@@ -56,12 +52,12 @@ export default function reducer(state = initialState, action) {
       error: action.error,
       loading: false
     });
-    // } else if (action.type === NEXT_QUESTION){
-    //   console.log('action next: ', action);
-    //   console.log('state next: ', state);
-    //   return Object.assign({}, state, {
-    //     question: action.question
-    //   })
-  }
+  } 
+  
+  // else if (action.type === PROGRESS){
+  //     return Object.assign({}, state, {
+  //       counter: action.counter + 1
+  //     })
+  // }
   return state;
 }

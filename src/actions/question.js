@@ -41,7 +41,7 @@ export const fetchQuestion = () => (dispatch, getState) => {
       return res.json();
     })
     .then(question => {
-      console.log('on mount:', question);
+      //console.log('on mount:', question);
       return dispatch(fetchQuestionSuccess(question));
     })
     .catch(error => {
@@ -67,18 +67,8 @@ export const putError = error => ({
   error
 });
 
-// export const NEXT_QUESTION = 'NEXT_QUESTION';
-// export const nextQuestion = question => ({
-//   type: NEXT_QUESTION,
-//   question
-// });
-
-//fetchNextQuestion only renders on 'refresh' why?
-// this is a put so maybe call it a put. answerQuestion
 export const putAnswer = (id, answer) => (dispatch, getState) => {
-  // console.log('sending changes to previous question', JSON.stringify(answer))
   const authToken = getState().auth.authToken;
-  console.log('putAnswer called');
   dispatch(putRequest());
   return fetch(`${API_BASE_URL}/question/${id}`, {
     method: 'PUT',
@@ -88,22 +78,21 @@ export const putAnswer = (id, answer) => (dispatch, getState) => {
     },
     body: JSON.stringify({ answer: answer })
   })
-    // .then(res => normalizeResponseErrors(res))
+    .then(res => normalizeResponseErrors(res))
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-    //   console.log('fetchNextQuestion ', res);
-    //   return res.json();
-    // })
-    // .then(question => {
-      console.log('Put fired successfully');
-      // dispatch(fetchQuestionSuccess(question));
       return dispatch(fetchQuestion());
-      // return question;
     })
     .catch(error => {
       console.log(error);
       dispatch(putError(error));
     });
 };
+
+// export const PROGRESS = 'PROGRESS';
+// export const progress = (counter) => ({
+//   type: PROGRESS,
+//   counter
+// });

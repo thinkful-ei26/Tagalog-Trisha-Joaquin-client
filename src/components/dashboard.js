@@ -10,7 +10,7 @@ export class Dashboard extends Component {
         this.props.dispatch(fetchQuestion())
     }
     render() {
-        //console.log('dashboard props', this.props);
+        // console.log('dashboard props', this.props);
         const { id } = this.props;
         const question = this.props.question;
         return (
@@ -35,7 +35,7 @@ const mapStateToProps = state => {
         username,
         name,
         question: state.question.question, 
-        id
+        id,
     };
 };
 

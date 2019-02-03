@@ -1,8 +1,6 @@
 import {SubmissionError} from 'redux-form';
-
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-console.log('API_BASE_URL REGISTER USER', API_BASE_URL);
 
 //make a POST req on api/users, pass in the user info as req.body
 export const registerUser = user => dispatch => {
@@ -31,8 +29,3 @@ export const registerUser = user => dispatch => {
             }
         });
 };
-
-
-//user login, validate, get a question, send the question (keep answer the back), get the user input, server validates, if correct, implement the algorithm 
-//question => q & a
-//user => user, pw, question (question, answer, m, next, history (total correct, incorrect))

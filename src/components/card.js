@@ -6,6 +6,7 @@ import { putAnswer, updateCorrect } from '../actions/question';
 import '../styles/card.css';
 
 export class Card extends Component {
+  //ideally, props should be converted to redux state, however Joaquin is more comfortable in react state hence below:
   constructor(props) {
     super(props);
     this.state = {
@@ -23,6 +24,8 @@ export class Card extends Component {
   }
 
   onSubmit(value) {
+    //validate answers on client side to render dynamic feedback & also send userinput to server side to validate the answer there too 
+    // then dispatch updateCorrect(bool) && change the database based on the correct/incorrect answer on the server-side
     const { word } = this.props.question;
     let userinput = this.state.answer.toLowerCase();
     let answer = this.props.question.answer.toLowerCase();
@@ -35,27 +38,22 @@ export class Card extends Component {
         submit: true
       });
       this.props.dispatch(updateCorrect(true));
-      //console.log('correct input: ',this.state);
     } else if (userinput !== answer) {
       this.setState({
         feedback: 'incorrect',
         message: `"${userinput}" is incorrect. The answer is "${answer}"`,
         submit: true
       });
-      //console.log('incorrect input: ',input);
       this.props.dispatch(updateCorrect(false));
     }
   }
 
   render() {
-    //console.log('LOGGING',this.props)
-    //console.log('card state', this.state)
-    //console.log('card props', this.props)
-    const { handleSubmit, pristine, submitting, id, question } = this.props;
-    const { correct } = this.props;
+    const { handleSubmit, pristine, submitting, id, question, correct } = this.props;
     question.userinput = this.state.answer;
-    //console.log('QUESTION CARD: ', question)
-
+ 
+    const { counter } = this.props.question;
+  
     /* ========= CORRECT FEEDBACK ========== */
     if (correct) {
       return (
@@ -87,11 +85,20 @@ export class Card extends Component {
       );
     }
 
+    if(counter === 10) {
+      return (
+        <div className="session-complete">
+          <p>Game Over :D</p>
+          <img src="https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif" alt="game over gif"></img>
+        </div>
+      )
+    }
+
     return (
       <div className="card-wrapper">
         <p>
           <strong>Progress: </strong>
-          {`${this.props.question.head}/10`}
+          {`${counter}`}
         </p>
         <fieldset>
           <legend>Learn Tagalog</legend>
@@ -135,7 +142,7 @@ export class Card extends Component {
 }
 
 const mapStateToProps = state => ({
-  correct: state.question.correct
+  correct: state.question.correct,
 });
 
 Card = connect(mapStateToProps)(Card);
