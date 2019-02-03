@@ -90,9 +90,3 @@ export const putAnswer = (id, answer) => (dispatch, getState) => {
       dispatch(putError(error));
     });
 };
-
-// export const PROGRESS = 'PROGRESS';
-// export const progress = (counter) => ({
-//   type: PROGRESS,
-//   counter
-// });

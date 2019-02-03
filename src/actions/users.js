@@ -12,7 +12,6 @@ export const registerUser = user => dispatch => {
         body: JSON.stringify(user)
     })
         .then(res => {
-            console.log('REACHING USER ENDPOINT')
             normalizeResponseErrors(res)
         }) //call utility method in src/actions/utils.js to normalize the response error
         .then(res => res.json())
