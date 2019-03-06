@@ -58,8 +58,8 @@ input:focus {
   color: white;
   font-size: 1rem;
   border: none;
-  padding: 10px;
-  border-radius: 4%;
+  padding: 7px;
+  border-radius: 4px;
   margin: 10px;
 }
 
