@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, reset } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { required, nonEmpty } from '../validators';
 import { putAnswer, updateCorrect } from '../actions/question';
 import '../styles/card.css';
 
 export class Card extends Component {
+
   //ideally, props should be converted to redux state, however Joaquin is more comfortable in react state hence below:
   constructor(props) {
     super(props);
@@ -89,7 +90,22 @@ export class Card extends Component {
       return (
         <div className="session-complete">
           <p>Game Over :D</p>
-          <img src="https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif" alt="game over gif"></img>
+          <img 
+            src="https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif" 
+            alt="game over gif" 
+            className="cat"
+          />
+
+          <button
+            className="reset"
+            onClick={() => {
+              console.log('counter reset');
+              } 
+            }
+          >
+            Reset
+          </button>
+
         </div>
       )
     }
@@ -148,5 +164,5 @@ const mapStateToProps = state => ({
 Card = connect(mapStateToProps)(Card);
 
 export default reduxForm({
-  form: 'card'
+  form: 'card',
 })(Card);

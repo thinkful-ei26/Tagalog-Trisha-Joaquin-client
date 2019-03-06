@@ -37,13 +37,12 @@ input:focus {
 }
 
 .login-btn, .register-btn {
-  padding: 2%;
   background-color: rgb(161, 122, 122);
   color: white;
   font-size: 1rem;
   border: none;
-  padding: 10px;
-  border-radius: 4%;
+  padding: 7px;
+  border-radius: 4px;
   margin: 10px;
 }
 
@@ -66,4 +65,20 @@ input:focus {
 
 .register-link:hover, .login-link:hover {
   background-color: rgb(126, 91, 91);
+}
+
+.session-complete img {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.reset {
+  background-color: rgb(161, 122, 122);
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 7px;
+  border-radius: 4px;
+  margin: 10px;
 }
