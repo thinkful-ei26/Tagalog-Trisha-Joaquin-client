@@ -96,7 +96,7 @@ export class Card extends Component {
             className="cat"
           />
 
-          <button
+          {/* <button
             className="reset"
             onClick={() => {
               console.log('counter reset');
@@ -104,7 +104,7 @@ export class Card extends Component {
             }
           >
             Reset
-          </button>
+          </button> */}
 
         </div>
       )
