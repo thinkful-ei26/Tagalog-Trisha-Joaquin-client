@@ -1,8 +1,8 @@
 # Tagalog Spaced Repetition
 
 ## Demo Account
-User: simba
-Password: Password123
+- *Username:* simba
+- *Password:* Password123
 
 ## Quick Links
 
@@ -21,6 +21,13 @@ In development, your local machine should have [Node.js](https://nodejs.org/en/)
 3. Run `mongod` in a separate terminal shell. 
 4. Open a new terminal shell and then `cd` into the server side and run `node server.js`
 5. Finally, `cd` into the client side and run `npm start` in a new terminal shell. A new browser window should open containing the app. 
+
+## Tech Stack
+
+- React for the frontend
+- Redux for state management
+- Node for the backend
+- MongoDB for the database
 
 ### ======================================
 ### Wireframes
