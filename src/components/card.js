@@ -86,7 +86,7 @@ export class Card extends Component {
       );
     }
 
-    if(counter === 20) {
+    if(counter === 10) {
       return (
         <div className="session-complete">
           <p>Game Over :D</p>
@@ -114,7 +114,7 @@ export class Card extends Component {
       <div className="card-wrapper">
         <p>
           <strong>Progress: </strong>
-          {`${counter}`}/20
+          {`${counter}`}/10
         </p>
         <fieldset>
           <legend>Learn Tagalog</legend>
