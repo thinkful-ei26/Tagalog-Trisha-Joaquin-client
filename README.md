@@ -1,5 +1,9 @@
 # Tagalog Spaced Repetition
 
+## Demo Account
+User: simba
+Password: Password123
+
 ## Quick Links
 
 - **[Client Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-client.git)**
