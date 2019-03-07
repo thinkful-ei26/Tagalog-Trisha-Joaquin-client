@@ -5,6 +5,25 @@ import LoginForm from './login-form';
 import '../styles/landing-page.css';
 
 export function LandingPage(props) {
+  if (localStorage.learnMore) {
+    return(
+      <div className="welcome-message">
+        <h2>Welcome to Tagalog Teacher!</h2>
+        <p>
+          This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
+        </p>
+        <p>
+          We use spaced repetition training, a technique to help you better master and retain new information.
+
+          You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
+        </p>
+        <button onClick={localStorage.clear()}>
+          Back
+        </button>
+      </div>
+    )
+  }
+
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
     localStorage.setItem("loggedIn", true);
@@ -17,7 +36,10 @@ export function LandingPage(props) {
         <h1>Tagalog Teacher</h1>
         <button 
           className="learn-more-btn"
-          onClick={() => console.log('LearnMore was clicked')}
+          onClick={() => {
+            console.log('learnmore clicked');
+            localStorage.setItem('learnMore', true)
+          }}
         >
           Learn More
         </button>
