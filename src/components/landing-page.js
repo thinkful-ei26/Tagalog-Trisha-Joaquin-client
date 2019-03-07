@@ -6,11 +6,15 @@ import LoginForm from './login-form';
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
+    localStorage.setItem("loggedIn", true);
     return <Redirect to="/dashboard" />;
   }
 
   return (
     <div className="home">
+      <div className="image">
+        <h1>Tagalog Teacher</h1>
+      </div>
       <fieldset>
         <legend> Welcome</legend>
         <p>
