@@ -24,14 +24,12 @@ In development, your local machine should have [Node.js](https://nodejs.org/en/)
 
 ## Tech Stack
 
-- React for the frontend
-- Redux for state management
-- Node for the backend
-- MongoDB for the database
+- **React** for the frontend
+- **Redux** for state management
+- **Node** for the backend
+- **MongoDB** for the database
 
-### ======================================
-### Wireframes
-### ======================================
+## Wireframes
 
 <img src="assets/media/signup.png" alt="" width="300px" />
 <img src="assets/media/login.png" alt="" width="300px" />

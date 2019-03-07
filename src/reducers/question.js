@@ -3,7 +3,6 @@ import {
   FETCH_QUESTION_REQUEST,
   FETCH_QUESTION_SUCCESS,
   FETCH_QUESTION_ERROR,
-  // PROGRESS,
   PUT_SUCCESS,
   PUT_REQUEST,
   PUT_ERROR
@@ -15,8 +14,7 @@ const initialState = {
   error: null,
   loading: false,
   feedback: null,
-  next: null,
-  // counter: 0
+  next: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -32,7 +30,6 @@ export default function reducer(state = initialState, action) {
       feedback: null,
       loading: false,
       correct: null,
-      // counter: action.counter
     });
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
@@ -54,10 +51,5 @@ export default function reducer(state = initialState, action) {
     });
   } 
   
-  // else if (action.type === PROGRESS){
-  //     return Object.assign({}, state, {
-  //       counter: action.counter + 1
-  //     })
-  // }
   return state;
 }

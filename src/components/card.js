@@ -95,17 +95,7 @@ export class Card extends Component {
             alt="game over gif" 
             className="cat"
           />
-
-          {/* <button
-            className="reset"
-            onClick={() => {
-              console.log('counter reset');
-              } 
-            }
-          >
-            Reset
-          </button> */}
-
+          
         </div>
       )
     }
