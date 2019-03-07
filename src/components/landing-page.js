@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import LoginForm from './login-form';
+import '../styles/landing-page.css';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
@@ -14,6 +15,12 @@ export function LandingPage(props) {
     <div className="home">
       <div className="image">
         <h1>Tagalog Teacher</h1>
+        <button 
+          className="learn-more-btn"
+          onClick={() => console.log('LearnMore was clicked')}
+        >
+          Learn More
+        </button>
       </div>
       <fieldset>
         <legend> Welcome</legend>

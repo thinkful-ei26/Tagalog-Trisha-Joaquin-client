@@ -1,6 +1,7 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
 }
 
 *, *:before, *:after {
@@ -27,6 +28,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
