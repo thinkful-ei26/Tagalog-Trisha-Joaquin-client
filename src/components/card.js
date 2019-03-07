@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect, reset } from 'react-redux';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { required, nonEmpty } from '../validators';
 import { putAnswer, updateCorrect } from '../actions/question';
