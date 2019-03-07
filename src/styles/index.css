@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  line-height: 1;
 }
 
 html {
@@ -23,10 +24,6 @@ input:focus {
   border-left: none;
   border-right: none;
   border-color: rgb(161, 122, 122);
-}
-
-.home {
-  margin-top: 30px;
 }
 
 #username, #password, #name, #passwordConfirm {

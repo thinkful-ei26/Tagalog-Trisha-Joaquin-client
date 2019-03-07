@@ -1,4 +1,5 @@
 .image {
+  display: flex;
   background:  linear-gradient(
     rgba(73, 56, 56, 0.6), 
     rgba(32, 24, 24, 0.8)
@@ -14,6 +15,8 @@
 .image h1 {
   padding: 0;
   margin: 0 auto;
+  text-align: center;
+  vertical-align: center;
 }
 
 .header-bar {
@@ -27,4 +30,4 @@
 .logout-btn {
   font-size: 0.8rem;
   color: black;
-}
+} 
