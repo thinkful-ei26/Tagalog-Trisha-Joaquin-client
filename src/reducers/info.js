@@ -1,7 +1,7 @@
 import {
   LEARN_MORE_CLICK,
   BACK_CLICK
-} from '../actions/landing-page';
+} from '../actions/info';
 
 const initialState = {
   learnMore: null,
@@ -9,16 +9,18 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type ===  LEARN_MORE_CLICK) {
+  switch (action.type) {
+    case LEARN_MORE_CLICK :
     return Object.assign({}, state, { 
       learnMore: true,
       back: false 
     });
-  }
-  if (action.type === BACK_CLICK) {
+
+    case BACK_CLICK :
     return Object.assign({}, state, { 
       learnMore: false,
       back: true 
     });
+    default : return state;
   }
 };

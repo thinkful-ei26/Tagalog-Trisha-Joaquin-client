@@ -1,28 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
+import { learnMoreClick } from '../actions/info';
 import LoginForm from './login-form';
+import InfoModal from './info';
 import '../styles/landing-page.css';
 
 export function LandingPage(props) {
-  if (localStorage.learnMore) {
-    return(
-      <div className="welcome-message">
-        <h2>Welcome to Tagalog Teacher!</h2>
-        <p>
-          This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
-        </p>
-        <p>
-          We use spaced repetition training, a technique to help you better master and retain new information.
-
-          You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
-        </p>
-        <button onClick={localStorage.clear()}>
-          Back
-        </button>
-      </div>
+  console.log(props)
+  if(props.info) { 
+    return (
+      <Route path="/info" component={InfoModal} />
     )
-  }
+  } 
+
+  // if (localStorage.learnMore) {
+  //   return(
+  //     <div className="welcome-message">
+  //       <h2>Welcome to Tagalog Teacher!</h2>
+  //       <p>
+  //         This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
+  //       </p>
+  //       <p>
+  //         We use spaced repetition training, a technique to help you better master and retain new information.
+
+  //         You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
+  //       </p>
+  //       <button onClick={localStorage.clear()}>
+  //         Back
+  //       </button>
+  //     </div>
+  //   )
+  // }
 
   // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
@@ -34,7 +43,7 @@ export function LandingPage(props) {
     <div className="home">
       <div className="image">
         <h1>Tagalog Teacher</h1>
-        <button 
+        {/* <button 
           className="learn-more-btn"
           onClick={() => {
             console.log('learnmore clicked');
@@ -42,6 +51,19 @@ export function LandingPage(props) {
           }}
         >
           Learn More
+        </button> */}
+
+        <button
+          className="info-btn" href="#info"
+          aria-label="How to use this app"
+          onClick={ () => {
+            props.dispatch(learnMoreClick()) 
+            }
+          }
+        >
+          {/* <Link to="/info"> */}
+            <span className="info-text">Learn More</span>
+          {/* </Link> */}
         </button>
       </div>
       <fieldset>

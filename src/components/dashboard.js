@@ -9,6 +9,7 @@ export class Dashboard extends Component {
     componentDidMount(){
         this.props.dispatch(fetchQuestion())
     }
+
     render() {
         const { id } = this.props;
         const question = this.props.question;
