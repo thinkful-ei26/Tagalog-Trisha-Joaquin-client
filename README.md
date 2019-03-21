@@ -1,4 +1,11 @@
-# Tagalog Spaced Repetition
+# [Tagalog Teacher](https://tagalog-teacher.herokuapp.com)
+
+<img src="assets/media/tagalog.png" alt="" width="600px" />
+
+## What is Tagalog Teacher?
+[Tagalog Teacher](https://tagalog-teacher.herokuapp.com) is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
+
+We use spaced repetition training, a technique to help you better master and retain new information. You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
 
 ## Demo Account
 - *Username:* demo
@@ -8,7 +15,7 @@
 
 - **[Client Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-client.git)**
 - **[Server Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-server)**
-- **Deployed Client URL:**  [https://frozen-garden-93870.herokuapp.com/](https://frozen-garden-93870.herokuapp.com/) 
+- **Deployed Client URL:**  [https://tagalog-teacher.herokuapp.com/](https://tagalog-teacher.herokuapp.com) 
 - **Deployed Server** [https://radiant-garden-12315.herokuapp.com/](https://radiant-garden-12315.herokuapp.com/)
 
 ## Instructions for Developers
@@ -30,7 +37,6 @@ In development, your local machine should have [Node.js](https://nodejs.org/en/)
 - **MongoDB** for the database
 
 ## Wireframes
-
 <img src="assets/media/signup.png" alt="" width="300px" />
 <img src="assets/media/login.png" alt="" width="300px" />
 <img src="assets/media/infomodal.png" alt="" width="300px" />
