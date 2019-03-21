@@ -46,7 +46,7 @@ export function LandingPage(props) {
             <div>
               <p>Just want to check out the app? Register using a demo user:</p>
               <ul>
-                <li><strong>Username: </strong>demo</li>
+                <li><strong>Username: </strong>one</li>
                 <li><strong>Password: </strong> Password123</li>
               </ul>
             </div>
