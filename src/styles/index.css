@@ -34,7 +34,8 @@ input:focus {
 }
 
 .login-btn:hover, .login-btn:focus, .register-btn:hover, .register-btn:focus {
-  background-color: rgb(235,28,34);
+  color: rgb(0,96,173);
+  background-color: white;
 }
 
 .register-link, .login-link {
@@ -51,7 +52,8 @@ input:focus {
 }
 
 .register-link:hover, .register-link:focus, .login-link:hover, .login-link:focus {
-  background-color: rgb(235,28,34)
+  color: rgb(0,96,173);
+  background-color: white;
 }
 
 .session-complete img {

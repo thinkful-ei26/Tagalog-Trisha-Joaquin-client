@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { learnMoreClick, backClick } from '../actions/info';
 import LoginForm from './login-form';
 import '../styles/landing-page.css';
+import '../styles/info.css';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
@@ -29,29 +30,29 @@ export function LandingPage(props) {
       </div>
 
       {props.learnMore ? (
-        <section className="info-modal">
-          <div className="welcome-message">
-          <h2>Welcome to Tagalog Teacher!</h2>
-          <p>
-            This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
-          </p>
-          <p>
-            We use spaced repetition training, a technique to help you better master and retain new information.
+        <section className="info-overlay">
+          <div className="info-contents">
+            <h2>Welcome to Tagalog Teacher!</h2>
+            <p>
+              This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
+            </p>
+            <p>
+              We use spaced repetition training, a technique to help you better master and retain new information.
 
-            You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
-          </p>
-          <button
-            className="close-btn"
-            aria-label="Close learn more info"
-            onClick={ () => {
-              localStorage.clear();
-              props.dispatch(backClick()) 
+              You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
+            </p>
+            <button
+              className="close-btn"
+              aria-label="Close learn more info"
+              onClick={ () => {
+                localStorage.clear();
+                props.dispatch(backClick()) 
+                }
               }
-            }
-          >
-          <span className="close-text">Close</span>
-          </button>
-        </div>
+            >
+            <span className="close-text">Close</span>
+            </button>
+          </div>
         </section>
       ) : null }
       
