@@ -24,6 +24,13 @@
   vertical-align: center;
 }
 
+.ombre-bar {
+  padding: 2px;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(right, #eb1c22,#0060ad 50%,#ffd006 75%,#ffd006 0);
+  background: linear-gradient(270deg, #eb1c22, #0060ad 50%, #ffd006 75%,#ffd006 0);
+}
+
 .info-overlay {
   position: fixed;
   display: block;

@@ -29,16 +29,25 @@ export class HeaderBar extends React.Component {
             //     <h1>Tagalog Teacher</h1>
             //     {logOutButton}
             // </div>
-            <ul className="header-bar">
-                <li className="header-center">
-                    <h1 className="logo-content">
-                        Tagalog Teacher
-                    </h1>
-                </li>
-                <li className="header-right">
-                    {logOutButton}
-                </li>
-          </ul>
+        //     <ul className="header-bar">
+        //         <li className="header-center">
+        //             <h1 className="logo-content">
+        //                 Tagalog Teacher
+        //             </h1>
+        //         </li>
+        //         <li className="header-right">
+        //             {logOutButton}
+        //         </li>
+        //         <li className="ombre-bar"></li>
+        //   </ul>
+        <section>
+            <div className="image">
+            <h1>Tagalog Teacher</h1>
+            </div>
+            <div className="ombre-bar"></div>
+            {logOutButton}
+        </section>
+        
         );
     }
 }

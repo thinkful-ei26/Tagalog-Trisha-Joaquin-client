@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { learnMoreClick, backClick } from '../actions/info';
 import LoginForm from './login-form';
+import HeaderBar from './header-bar';
 import '../styles/landing-page.css';
 import '../styles/info.css';
 
@@ -15,7 +16,8 @@ export function LandingPage(props) {
 
   return (
     <div className="home">
-      <div className="image">
+      <HeaderBar />
+      {/* <div className="image">
         <h1>Tagalog Teacher</h1>
         <button
           className="info-btn" href="#info"
@@ -28,6 +30,7 @@ export function LandingPage(props) {
           <span className="info-text">Learn More</span>
         </button>
       </div>
+      <div className="ombre-bar"></div> */}
 
       {props.learnMore ? (
         <section className="info-overlay">

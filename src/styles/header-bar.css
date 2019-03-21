@@ -15,3 +15,10 @@
   font-size: 0.8rem;
   color: rgb(1, 33, 61);
 } 
+
+.ombre-bar {
+  padding: 2px;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(right, #ffd006,white 50%,#0060ad 75%,#eb1c22 0);
+  background: linear-gradient(270deg,#ffd006,white 50%,#0060ad 75%,#eb1c22 0);
+}
