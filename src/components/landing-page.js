@@ -7,7 +7,8 @@ import InfoModal from './info';
 import '../styles/landing-page.css';
 
 export function LandingPage(props) {
-  console.log(props)
+
+  // console.log(props)
   if(props.info) { 
     return (
       <Route path="/info" component={InfoModal} />
