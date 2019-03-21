@@ -1,7 +1,7 @@
 # Tagalog Spaced Repetition
 
 ## Demo Account
-- *Username:* simba
+- *Username:* demo
 - *Password:* Password123
 
 ## Quick Links
