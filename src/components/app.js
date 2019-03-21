@@ -43,7 +43,7 @@ export class App extends React.Component {
             <div className="app">
                 {localStorage.loggedIn ? (
                 <div>
-                    <HeaderBar />
+                    {/* <HeaderBar /> */}
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
