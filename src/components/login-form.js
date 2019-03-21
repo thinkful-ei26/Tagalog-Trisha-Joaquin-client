@@ -34,17 +34,17 @@ export class LoginForm extends React.Component {
                     name="username"
                     id="username"
                     validate={[required, nonEmpty]}
-                    aria-label="username"
                 />
-                <label htmlFor="password">Password</label>
+                
+                <label htmlFor="password">Password </label>
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
-                    aria-label="password"
                 />
+               
                 <button 
                 className="login-btn"
                 disabled={this.props.pristine || this.props.submitting}>
