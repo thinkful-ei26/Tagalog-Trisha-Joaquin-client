@@ -11,6 +11,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LEARN_MORE_CLICK :
+    // console.log('clicked', state)
     return Object.assign({}, state, { 
       learnMore: true,
       back: false 

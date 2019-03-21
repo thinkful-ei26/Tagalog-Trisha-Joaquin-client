@@ -1,12 +1,17 @@
 .header-bar {
-  background-color: rgb(161, 122, 122);
-  max-width: 100%;
-  padding: 1%;
-  color: white;
+  align-items: center;
+  background: url('../flag.jpg');
+  background-size: 200px;
+  background-repeat: no-repeat;
+  height: 10vh;
+  background-blend-mode: luminosity;
+  color: rgb(1, 33, 61);
   text-align: center;
 }
 
 .logout-btn {
+  position: absolute;
+  right: 15px;
   font-size: 0.8rem;
-  color: black;
+  color: rgb(1, 33, 61);
 } 
