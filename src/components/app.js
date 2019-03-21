@@ -42,14 +42,13 @@ export class App extends React.Component {
         return (
             <div className="app">
                 {localStorage.loggedIn ? (
-                <div>
-                    {/* <HeaderBar /> */}
+                <div className="loggedIn">
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
                 </div>
                 ) :(
-                <div>
+                <div className="unregistered">
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/register" component={RegistrationPage} />
