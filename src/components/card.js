@@ -104,7 +104,7 @@ export class Card extends Component {
       <div className="card-wrapper">
     
         <p>
-          <strong>Progress: </strong>
+          <span>Progress: </span>
           {`${counter}`}/10
         </p>
         <fieldset>

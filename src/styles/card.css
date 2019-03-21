@@ -9,6 +9,14 @@
   display: none;
 }
 
+.card-wrapper p {
+  margin: 10px;
+}
+
+.card-wrapper p span {
+  font-weight: bold;
+}
+
 .question {
   margin-top: 10px;
   border: 1px solid grey;
