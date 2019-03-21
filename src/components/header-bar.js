@@ -25,10 +25,20 @@ export class HeaderBar extends React.Component {
             );
         }
         return (
-            <div className="header-bar">
-                <h1>Tagalog Teacher</h1>
-                {logOutButton}
-            </div>
+            // <div className="header-bar">
+            //     <h1>Tagalog Teacher</h1>
+            //     {logOutButton}
+            // </div>
+            <ul className="header-bar">
+                <li className="header-center">
+                    <h1 className="logo-content">
+                        Tagalog Teacher
+                    </h1>
+                </li>
+                <li className="header-right">
+                    {logOutButton}
+                </li>
+          </ul>
         );
     }
 }
