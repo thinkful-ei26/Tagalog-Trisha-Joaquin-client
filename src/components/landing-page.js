@@ -28,21 +28,6 @@ export function LandingPage(props) {
         <span className="info-text">Learn More</span>
       </button>
 
-      {/* <div className="image">
-        <h1>Tagalog Teacher</h1>
-        <button
-          className="info-btn" href="#info"
-          aria-label="How to use this app"
-          onClick={ () => {
-            props.dispatch(learnMoreClick()) 
-            }
-          }
-        >
-          <span className="info-text">Learn More</span>
-        </button>
-      </div>
-      <div className="ombre-bar"></div> */}
-
       {props.learnMore ? (
         <section className="info-overlay">
           <div className="info-contents">

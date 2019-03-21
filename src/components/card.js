@@ -102,6 +102,7 @@ export class Card extends Component {
 
     return (
       <div className="card-wrapper">
+    
         <p>
           <strong>Progress: </strong>
           {`${counter}`}/10
@@ -129,6 +130,7 @@ export class Card extends Component {
               required={true}
               ref={input => (this.input = input)}
               validate={[required, nonEmpty]}
+              aria-label="user input"
             />
             <div className="response" />
             {/* ========= ANSWER SUBMIT BUTTON ==========  */}

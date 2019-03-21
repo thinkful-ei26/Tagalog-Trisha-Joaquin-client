@@ -16,6 +16,7 @@ export class Dashboard extends Component {
         const question = this.props.question;
         return (
             <div className="dashboard">
+                <HeaderBar />
                 <div className="dashboard-username">
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>
