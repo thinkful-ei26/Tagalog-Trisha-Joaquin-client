@@ -46,9 +46,22 @@
   right: 0;
   bottom: 0;
   background-color: rgb(27, 26, 38, 0.9);
-  z-index: 2;
+  z-index: 9999;
 }
 
 .info-contents {
   color: whitesmoke;
+}
+
+.info-btn {
+  position: relative;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 500px) {
+  .info-btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
 }

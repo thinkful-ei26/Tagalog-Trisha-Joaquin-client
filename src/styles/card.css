@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.card-wrapper legend {
+  display: none;
+}
+
 .question {
   max-width: 100%;
   border: 1px solid grey;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchQuestion } from '../actions/question';
 import requiresLogin from './requires-login';
 import Card from './card';
+import HeaderBar from './header-bar';
 
 export class Dashboard extends Component {
 
@@ -15,6 +16,7 @@ export class Dashboard extends Component {
         const question = this.props.question;
         return (
             <div className="dashboard">
+                <HeaderBar />
                 <div className="dashboard-username">
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>

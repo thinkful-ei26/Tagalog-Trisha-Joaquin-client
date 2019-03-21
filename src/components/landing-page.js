@@ -17,6 +17,17 @@ export function LandingPage(props) {
   return (
     <div className="home">
       <HeaderBar />
+      <button
+        className="info-btn" href="#info"
+        aria-label="How to use this app"
+        onClick={ () => {
+          props.dispatch(learnMoreClick()) 
+          }
+        }
+      >
+        <span className="info-text">Learn More</span>
+      </button>
+
       {/* <div className="image">
         <h1>Tagalog Teacher</h1>
         <button

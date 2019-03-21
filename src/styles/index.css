@@ -10,10 +10,17 @@
   color: #f45845;
 }
 
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid;
+  border-color: rgb(0,96,173);
+}
+
 input:focus {
   border-left: none;
   border-right: none;
-  border-color: rgb(0,96,173);
 }
 
 #username, #password, #name, #passwordConfirm {
