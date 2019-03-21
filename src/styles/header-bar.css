@@ -5,15 +5,16 @@
   background-repeat: no-repeat;
   height: 10vh;
   background-blend-mode: luminosity;
-  color: rgb(1, 33, 61);
+  color: rgb(0,96,173);
   text-align: center;
 }
 
 .logout-btn {
   position: absolute;
+  top: 20px;
   right: 15px;
   font-size: 0.8rem;
-  color: rgb(1, 33, 61);
+  color: rgb(0,96,173);
 } 
 
 .ombre-bar {

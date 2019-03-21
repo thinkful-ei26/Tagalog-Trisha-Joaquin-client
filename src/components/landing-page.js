@@ -47,14 +47,25 @@ export function LandingPage(props) {
         <section className="info-overlay">
           <div className="info-contents">
             <h2>Welcome to Tagalog Teacher!</h2>
-            <p>
-              This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
-            </p>
-            <p>
-              We use spaced repetition training, a technique to help you better master and retain new information.
+            <div className="details">
+              <p>
+                This is a language learning app to help get you on your way to learning Tagalog, one of the Philippines' national languages.
+              </p>
+              <p>
+                We use spaced repetition training, a technique to help you better master and retain new information.
 
-              You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
-            </p>
+                You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
+              </p>
+            </div>
+            
+            <div>
+              <p>Just want to check out the app? Register using a demo user:</p>
+              <ul>
+                <li><strong>Username: </strong>demo</li>
+                <li><strong>Password: </strong> Password123</li>
+              </ul>
+            </div>
+
             <button
               className="close-btn"
               aria-label="Close learn more info"

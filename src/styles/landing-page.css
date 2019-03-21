@@ -54,8 +54,28 @@
 }
 
 .info-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(0,96,173);
   position: relative;
+  padding: 7px;
+  border-radius: 4px;
   font-size: 16px;
+}
+
+.info-btn:hover, .info-btn:focus {
+  cursor: pointer;
+  background-color: rgb(0,96,173);
+  color: white;
+}
+
+.details {
+  width: 80%;
+  line-height: 1.5;
+}
+
+.close-btn {
+  margin: 10px auto;
 }
 
 @media screen and (min-width: 500px) {
