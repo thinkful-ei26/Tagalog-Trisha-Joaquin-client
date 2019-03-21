@@ -8,7 +8,7 @@
 We use spaced repetition training, a technique to help you better master and retain new information. You will be shown a Tagalog word. See if you can enter the corresponding English translation of the word.
 
 ## Demo Account
-- *Username:* demo
+- *Username:* one
 - *Password:* Password123
 
 ## Quick Links
