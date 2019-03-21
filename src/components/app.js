@@ -8,6 +8,7 @@ import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
+
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -40,10 +41,22 @@ export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <HeaderBar />
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
+                {localStorage.loggedIn ? (
+                <div>
+                    <HeaderBar />
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                </div>
+                ) :(
+                <div>
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                </div>
+                )
+                }
+                
             </div>
         );
     }

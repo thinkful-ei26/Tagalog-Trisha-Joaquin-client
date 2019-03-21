@@ -1,5 +1,9 @@
 # Tagalog Spaced Repetition
 
+## Demo Account
+- *Username:* simba
+- *Password:* Password123
+
 ## Quick Links
 
 - **[Client Repo](https://github.com/thinkful-ei26/Tagalog-Trisha-Joaquin-client.git)**
@@ -18,9 +22,14 @@ In development, your local machine should have [Node.js](https://nodejs.org/en/)
 4. Open a new terminal shell and then `cd` into the server side and run `node server.js`
 5. Finally, `cd` into the client side and run `npm start` in a new terminal shell. A new browser window should open containing the app. 
 
-### ======================================
-### Wireframes
-### ======================================
+## Tech Stack
+
+- **React** for the frontend
+- **Redux** for state management
+- **Node** for the backend
+- **MongoDB** for the database
+
+## Wireframes
 
 <img src="assets/media/signup.png" alt="" width="300px" />
 <img src="assets/media/login.png" alt="" width="300px" />

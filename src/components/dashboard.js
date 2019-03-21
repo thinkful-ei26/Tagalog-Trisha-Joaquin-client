@@ -3,18 +3,20 @@ import { connect } from 'react-redux';
 import { fetchQuestion } from '../actions/question';
 import requiresLogin from './requires-login';
 import Card from './card';
+import HeaderBar from './header-bar';
 
 export class Dashboard extends Component {
 
     componentDidMount(){
         this.props.dispatch(fetchQuestion())
     }
+
     render() {
-        // console.log('dashboard props', this.props);
         const { id } = this.props;
         const question = this.props.question;
         return (
             <div className="dashboard">
+                <HeaderBar />
                 <div className="dashboard-username">
                     <h2>Hello {this.props.name}!</h2>
                     <p>@{this.props.username}</p>
@@ -29,7 +31,6 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-//console.log('dashboard state: ',state)
     const { username, name, id } = state.auth.currentUser;
     return {
         username,

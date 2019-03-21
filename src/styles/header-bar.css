@@ -1,12 +1,42 @@
 .header-bar {
-  background-color: rgb(161, 122, 122);
-  max-width: 100%;
-  padding: 1%;
-  color: white;
+  align-items: center;
+  background: url('../flag.jpg');
+  background-size: 150px;
+  background-repeat: no-repeat;
+  height: 10vh;
+  background-blend-mode: luminosity;
+  color: rgb(0,96,173);
   text-align: center;
 }
 
 .logout-btn {
-  font-size: 0.8rem;
-  color: black;
+  background-color: transparent;
+  border: none;
+  color: rgb(0,96,173);
+  position: relative;
+  padding: 7px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+} 
+
+.logout-btn:hover, .logout-btn:focus {
+  cursor: pointer;
+  background-color: rgb(0,96,173);
+  color: white;
+}
+
+.ombre-bar {
+  padding: 2px;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(right, #ffd006,white 50%,#0060ad 75%,#eb1c22 0);
+  background: linear-gradient(270deg,#ffd006,white 50%,#0060ad 75%,#eb1c22 0);
+}
+
+@media screen and (min-width: 500px) {
+  .logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
 }

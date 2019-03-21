@@ -6,6 +6,7 @@ import { putAnswer, updateCorrect } from '../actions/question';
 import '../styles/card.css';
 
 export class Card extends Component {
+
   //ideally, props should be converted to redux state, however Joaquin is more comfortable in react state hence below:
   constructor(props) {
     super(props);
@@ -89,16 +90,22 @@ export class Card extends Component {
       return (
         <div className="session-complete">
           <p>Game Over :D</p>
-          <img src="https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif" alt="game over gif"></img>
+          <img 
+            src="https://media.giphy.com/media/xn9yw4QWUiC2Y/giphy.gif" 
+            alt="game over gif" 
+            className="cat"
+          />
+          
         </div>
       )
     }
 
     return (
       <div className="card-wrapper">
+    
         <p>
           <strong>Progress: </strong>
-          {`${counter}`}
+          {`${counter}`}/10
         </p>
         <fieldset>
           <legend>Learn Tagalog</legend>
@@ -123,6 +130,7 @@ export class Card extends Component {
               required={true}
               ref={input => (this.input = input)}
               validate={[required, nonEmpty]}
+              aria-label="user input"
             />
             <div className="response" />
             {/* ========= ANSWER SUBMIT BUTTON ==========  */}
@@ -148,5 +156,5 @@ const mapStateToProps = state => ({
 Card = connect(mapStateToProps)(Card);
 
 export default reduxForm({
-  form: 'card'
+  form: 'card',
 })(Card);

@@ -34,6 +34,7 @@ export class LoginForm extends React.Component {
                     name="username"
                     id="username"
                     validate={[required, nonEmpty]}
+                    aria-label="username"
                 />
                 <label htmlFor="password">Password</label>
                 <Field
@@ -42,6 +43,7 @@ export class LoginForm extends React.Component {
                     name="password"
                     id="password"
                     validate={[required, nonEmpty]}
+                    aria-label="password"
                 />
                 <button 
                 className="login-btn"
