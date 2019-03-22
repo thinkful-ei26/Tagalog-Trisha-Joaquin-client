@@ -3,7 +3,6 @@ import HeaderBar from './header-bar';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import Info from './info';
-
 import RegistrationForm from './registration-form';
 
 export function RegistrationPage(props) {
@@ -16,9 +15,11 @@ export function RegistrationPage(props) {
         <div className="home">
             <HeaderBar />
             <Info/>
-            <h2>Register</h2>
-            <RegistrationForm />
-            <Link to="/" className="login-link">Login</Link>
+            <div className="register-container">
+                <h2>Register</h2>
+                <RegistrationForm />
+                <Link to="/" className="login-link">Login</Link>
+            </div>
         </div>
     );
 }
