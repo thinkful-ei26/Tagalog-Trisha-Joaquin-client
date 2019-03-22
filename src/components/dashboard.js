@@ -18,8 +18,7 @@ export class Dashboard extends Component {
             <div className="dashboard">
                 <HeaderBar />
                 <div className="dashboard-username">
-                    <h2>Hello {this.props.name}!</h2>
-                    <p>@{this.props.username}</p>
+                    <h2>Hello {this.props.username}!</h2>
                 </div>
                 <Card
                     question={question}
