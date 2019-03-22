@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderBar from './header-bar';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import Info from './info';
 
 import RegistrationForm from './registration-form';
 
@@ -14,6 +15,7 @@ export function RegistrationPage(props) {
     return (
         <div className="home">
             <HeaderBar />
+            <Info/>
             <h2>Register</h2>
             <RegistrationForm />
             <Link to="/" className="login-link">Login</Link>
@@ -22,7 +24,7 @@ export function RegistrationPage(props) {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    learnMore: state.info.learnMore
 });
 
 export default connect(mapStateToProps)(RegistrationPage);
